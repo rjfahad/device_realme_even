@@ -1,0 +1,45 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// Init scripts
+sh_binary {
+    name: "init.insmod.sh",
+    src: "bin/init.insmod.sh",
+    vendor: false,
+}
+
+sh_binary {
+    name: "install-recovery.sh",
+    src: "bin/install-recovery.sh",
+    vendor: false,
+}
+
+sh_binary {
+    name: "swap_enable.sh",
+    src: "bin/swap_enable.sh",
+    vendor: false,
+}
+
+// Init configuration files
+prebuilt_etc {
+    name: "init.mt6768.rc",
+    src: "etc/init.mt6768.rc",
+    sub_dir: "init/hw",
+    vendor: false,
+}
+prebuilt_etc {
+    name: "init.recovery.mt6768.rc",
+    src: "etc/init.recovery.mt6768.rc",
+    sub_dir: "init/hw",
+    vendor: false,
+}
+
+// fstab
+prebuilt_etc {
+    name: "fstab.mt6768",
+    src: "etc/fstab.mt6768",
+    vendor: false,
+}

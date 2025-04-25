@@ -1,0 +1,8 @@
+type hal_fingerprint_RMX3191, domain;
+hal_client_domain(hal_fingerprint_RMX3191, hal_fingerprint)
+hal_server_domain(hal_fingerprint_RMX3191, hal_fingerprint)
+
+type hal_fingerprint_RMX3191_exec, system_file_type, exec_type, file_type;
+init_daemon_domain(hal_fingerprint_RMX3191)
+
+binder_call(hal_fingerprint_RMX3191, hal_fingerprint_RMX3191)

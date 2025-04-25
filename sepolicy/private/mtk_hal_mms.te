@@ -1,0 +1,6 @@
+
+allow { appdomain -isolated_app } mtk_hal_mms_hwservice:hwservice_manager find;
+
+# Allow gmscore_app to add and find mtk_hal_mms_hwservice
+add_hwservice(gmscore_app, mtk_hal_mms_hwservice)
+
