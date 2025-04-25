@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/realme/even
+DEVICE_PATH := device/realme/RMX3191
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_PREBUILT_ELF_FILES := true
@@ -60,14 +60,14 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_SCREEN_DENSITY := 360
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_even
-TARGET_RECOVERY_DEVICE_MODULES := libinit_even
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_RMX3191
+TARGET_RECOVERY_DEVICE_MODULES := libinit_RMX3191
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/realme/even
-TARGET_KERNEL_CONFIG := k68v1_64_defconfig
+TARGET_KERNEL_SOURCE := kernel/realme/RMX3191
+TARGET_KERNEL_CONFIG := RMX3191_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_KERNEL_CLANG_VERSION := r383902
@@ -160,4 +160,4 @@ DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
 BOARD_VNDK_VERSION := current
 
 # Inherit the proprietary files
-include vendor/realme/even/BoardConfigVendor.mk
+include vendor/realme/RMX3191/BoardConfigVendor.mk

@@ -158,7 +158,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.even
+    android.hardware.light-service.RMX3191
 
 # Media
 PRODUCT_PACKAGES += \
@@ -210,6 +210,20 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
+
+# Runtime Resource Overlays 
+PRODUCT_PACKAGES += \
+    ApertureOverlayRMX3191 \
+    CarrierConfigOverlayRMX3191 \
+    DialerOverlayRMX3191 \
+    FrameworksResOverlayRMX3191 \
+    SettingsOverlayRMX3191 \
+    SettingsProviderOverlayRMX3191 \
+    SystemUIOverlayRMX3191 \
+    TelephonyOverlayRMX3191 \
+    TetheringResOverlayRMX3191 \
+    WifiResOverlayRMX3191
+
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -376,4 +390,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/realme/even/even-vendor.mk)
+$(call inherit-product, vendor/realme/RMX3191/RMX3191-vendor.mk)

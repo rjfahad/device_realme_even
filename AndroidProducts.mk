@@ -5,9 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_even.mk
-
-COMMON_LUNCH_CHOICES := \
-    lineage_even-user \
-    lineage_even-userdebug \
-    lineage_even-eng
+    $(LOCAL_DIR)/lineage_RMX3191.mk

@@ -14,9 +14,9 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.light-service.even",
-    init_rc: ["android.hardware.light-service.even.rc"],
-    vintf_fragments: ["android.hardware.light-service.even.xml"],
+    name: "android.hardware.light-service.RMX3191",
+    init_rc: ["android.hardware.light-service.RMX3191.rc"],
+    vintf_fragments: ["android.hardware.light-service.RMX3191.xml"],
     relative_install_path: "hw",
     srcs: [
         "main.cpp",
