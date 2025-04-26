@@ -1,5 +1,4 @@
-# Unpinned blobs from sys_mssi_64_cn_armv82-user 13 TP1A.220905.001 1716367279348 release-keys
-# Kernel Power Off Charging (KPOC) - from RMX3741_14.0.0.83(EX01) 
+# Kernel Power Off Charging (KPOC) - from RMX3191
 bin/kpoc_charger|5a1df1ce79db1ec31caea4d4c3c4d896066b1193
 etc/init/kpoc_charger.rc|2ce485c39956849bd2294428d801c3c26ec1c040
 lib64/libshowlogo.so|658af2d8609ed5b2649d36b9b06e6de2ade3c455
@@ -30,117 +29,18 @@ lib64/libvt_avsync.so
 lib64/libmtk_vt_wrapper.so
 lib64/libvsim-adaptor-client.so
 lib/libvsim-adaptor-client.so
-
-# Audio
-system_ext/lib/vendor.oplus.hardware.virtual_device.audio@1.0.so
-system_ext/lib64/vendor.oplus.hardware.virtual_device.audio@1.0.so
-
-
-# Audio configs
-etc/audio_effects.conf
-
-system_ext/etc/a2dp_audio_policy_configuration.xml
-system_ext/etc/a2dp_in_audio_policy_configuration.xml
-system_ext/etc/audio_policy_configuration.xml
-system_ext/etc/audio_policy_configuration_bluetooth_legacy_hal.xml
-system_ext/etc/audio_policy_configuration_stub.xml
-system_ext/etc/audio_policy_engine_configuration.xml
-system_ext/etc/audio_policy_engine_default_stream_volumes.xml
-system_ext/etc/audio_policy_engine_product_strategies.xml
-system_ext/etc/audio_policy_engine_stream_volumes.xml
-system_ext/etc/audio_policy_volumes.xml
-system_ext/etc/bluetooth_audio_policy_configuration.xml
-system_ext/etc/default_volume_tables.xml
-system_ext/etc/hearing_aid_audio_policy_configuration.xml
-system_ext/etc/r_submix_audio_policy_configuration.xml
-system_ext/etc/usb_audio_policy_configuration.xml
-
-# Bluetooth (A2DP)
-lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so
-lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so
-lib64/vendor.mediatek.hardware.bluetooth.audio@2.2.so
-
-# Display
-lib/vendor.mediatek.hardware.mms@1.0.so
-lib/vendor.mediatek.hardware.mms@1.1.so
-lib/vendor.mediatek.hardware.mms@1.2.so
-lib/vendor.mediatek.hardware.mms@1.3.so
-lib/vendor.mediatek.hardware.pq@2.0.so
-lib/vendor.mediatek.hardware.pq@2.1.so
-lib/vendor.mediatek.hardware.pq@2.2.so
-lib/vendor.mediatek.hardware.pq@2.3.so
-lib64/vendor.mediatek.hardware.mms@1.0.so
-lib64/vendor.mediatek.hardware.mms@1.1.so
-lib64/vendor.mediatek.hardware.mms@1.2.so
-lib64/vendor.mediatek.hardware.mms@1.3.so
-lib64/vendor.mediatek.hardware.pq@2.0.so
-lib64/vendor.mediatek.hardware.pq@2.1.so
-lib64/vendor.mediatek.hardware.pq@2.2.so
-lib64/vendor.mediatek.hardware.pq@2.3.so
-system_ext/lib/vendor.oplus.hardware.displaypanelfeature@1.0.so
-system_ext/lib64/vendor.mediatek.hardware.composer_ext@1.0.so
-system_ext/lib64/vendor.oplus.hardware.displaypanelfeature@1.0.so
-system_ext/lib/vendor.oplus.hardware.charger@1.0.so
-system_ext/lib64/vendor.oplus.hardware.charger@1.0.so
-
-# Media
-etc/seccomp_policy/mediacodec.policy
-lib/libdatasource.so
-lib/libged_sys.so
-lib/libgralloc_extra_sys.so
-lib/libmedia_codeclist.so
-lib/libsf_cpupolicy.so
-lib/libstagefright_bufferpool@2.0.1.so
-lib/libstagefright_codecbase.so
-lib/libstagefright_framecapture_utils.so
-lib/libstagefright_surface_utils.so
-lib/libstagefright_wfd_mtk.so
-lib64/libdatasource.so
-lib64/libged_sys.so
-lib64/libgralloc_extra_sys.so
-lib64/libmedia_codeclist.so
-lib64/libsf_cpupolicy.so
-lib64/libstagefright_bufferpool@2.0.1.so
-lib64/libstagefright_codecbase.so
-lib64/libstagefright_framecapture_utils.so
-lib64/libstagefright_surface_utils.so
-lib64/libstagefright_wfd_mtk.so
-system_ext/lib/libiatlasservice.so
-system_ext/lib/libstagefright_hdcp.so
-system_ext/lib/vendor.oplus.hardware.hdcp@1.0.so
-system_ext/lib/vendor.oplus.hardware.hdcp@1.1.so
-system_ext/lib64/libiatlasservice.so
-system_ext/lib64/libstagefright_hdcp.so
-system_ext/lib64/vendor.oplus.hardware.hdcp@1.0.so
-system_ext/lib64/vendor.oplus.hardware.hdcp@1.1.so
-
-
-
-system_ext/lib/vendor.oplus.hardware.biometrics.fingerprintpay@1.0.so
-system_ext/lib/vendor.oplus.hardware.fido.fido2ca@1.0.so
-system_ext/lib/vendor.oplus.hardware.fido.fidoca@1.0.so
-system_ext/lib64/vendor.oplus.hardware.biometrics.fingerprintpay@1.0.so
-system_ext/lib64/vendor.oplus.hardware.fido.fido2ca@1.0.so
-system_ext/lib64/vendor.oplus.hardware.fido.fidoca@1.0.so
-
-# Power
-system_ext/lib/vendor.mediatek.hardware.mtkpower@1.0.so
-system_ext/lib/vendor.mediatek.hardware.mtkpower@1.1.so
-system_ext/lib/vendor.mediatek.hardware.mtkpower@1.2.so
-system_ext/lib64/vendor.mediatek.hardware.mtkpower@1.0.so
-system_ext/lib64/vendor.mediatek.hardware.mtkpower@1.1.so
-system_ext/lib64/vendor.mediatek.hardware.mtkpower@1.2.so
-
-
-# Radio
-
-system_ext/etc/init/datafree.rc
-system_ext/lib/vendor.mediatek.hardware.mtkradioex@3.0.so
-system_ext/lib64/vendor.mediatek.hardware.mtkradioex@3.0.so
-
-# Radio (IMS)
+-framework/mediatek-common.jar
+-framework/mediatek-framework.jar
+framework/mediatek-gwsd.jar
+framework/mediatek-gwsdv2.jar
+-framework/mediatek-ims-base.jar
+-framework/mediatek-ims-common.jar
+framework/mediatek-ims-extension-plugin.jar
+-framework/mediatek-telecom-common.jar
+-framework/mediatek-telephony-base.jar|d7a8d9b752129711f195aa5ea3cc1a952db35bc5
+-framework/mediatek-telephony-common.jar
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 
-# Soter
-system_ext/app/SoterService/SoterService.apk
+# ImsService - from plato-user 14 UP1A.230620.001 V14.0.7.0.ULQMIXM release-keys
+-priv-app/ImsService/ImsService.apk|62e6a0c457812366623630dffef27b0bf5ca7fad
