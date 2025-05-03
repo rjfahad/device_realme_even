@@ -6,6 +6,9 @@
 
 DEVICE_PATH := device/realme/RMX3191
 
+# Setup dalvik vm configs
+$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
+
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
@@ -14,6 +17,9 @@ $(call inherit-product, vendor/realme/RMX3191/RMX3191-vendor.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+# RealmeParts
+$(call inherit-product, packages/apps/RealmeParts/parts.mk)
 
 # Boot Animation
 TARGET_SCREEN_HEIGHT := 1600
