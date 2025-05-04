@@ -169,10 +169,6 @@ MtkInCallService
 PRODUCT_PACKAGES += \
 BesLoudness
 
-# PowerOffAlarm 
-PRODUCT_PACKAGES += \
-PowerOffAlarm
-
 # OplusDoze
 PRODUCT_PACKAGES += \
 OplusDoze
