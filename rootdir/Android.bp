@@ -12,6 +12,12 @@ sh_binary {
 }
 
 sh_binary {
+    name: "perf_profile.sh",
+    src: "bin/perf_profile.sh",
+    vendor: false,
+}
+
+sh_binary {
     name: "install-recovery.sh",
     src: "bin/install-recovery.sh",
     vendor: false,
