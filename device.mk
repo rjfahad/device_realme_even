@@ -162,7 +162,20 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # InCall Service
 PRODUCT_PACKAGES += \
-    MtkInCallService
+MtkInCallService
+
+# BesLoudness
+PRODUCT_PACKAGES += \
+BesLoudness
+
+# PowerOffAlarm 
+PRODUCT_PACKAGES += \
+PowerOffAlarm
+
+# OplusDoze
+PRODUCT_PACKAGES += \
+OplusDoze
+
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
