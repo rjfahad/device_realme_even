@@ -13,5 +13,11 @@ echo "succesfully"
 echo "clone vt"
 git clone https://github.com/cumaRull/vendor_realme_RMX3191.git -b rui4-oss ./vendor/realme/RMX3191
 echo "successfully"
-echo "clone Kernel prebuilt"
-git clone --depth=1 https://github.com/cumaRull/kernel_realme_RMX3191-prebuilt.git -b master ./device/realme/RMX3191-kernel
+echo ""
+echo "Clone Kernel"
+git clone --depth=1 --recurse-submodules https://github.com/cumaRull/kernel_realme_RMX3191.git -b rui3-ksu ./kernel/realme/RMX3191
+echo "successfully"
+echo ""
+echo "Clone Clang"
+git clone --depth=1 --recurse-submodule https://github.com/kdrag0n/proton-clang.git -b master ./prebuilts/clang/host/linux-x86/mylittleclang
+echo "successfully"
