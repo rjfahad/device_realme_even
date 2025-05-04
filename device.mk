@@ -79,6 +79,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.insmod.sh \
     install-recovery.sh \
+    perf_profile.sh \
     swap_enable.sh 
 
 PRODUCT_PACKAGES += \
