@@ -42,7 +42,7 @@ persist.sys.oiface.feature=oiface:1f,oifaceim:ffffffff
 
 persist.sys.orms.name=ORMS
 persist.vendor.bt.iotinfo.report.enable=true
-persist.vendor.enable.cpulimit=true
+persist.vendor.enable.cpulimit=false
 persist.vendor.enable.hans=true
 persist.vendor.enable.preload=true
 persist.vendor.entitlement_enabled=0
