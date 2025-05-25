@@ -141,7 +141,6 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 -include $(DEVICE_PATH)/system_prop.mk
--include $(DEVICE_PATH)/configs/props/product.prop
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Recovery
