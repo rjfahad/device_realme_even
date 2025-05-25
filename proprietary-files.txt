@@ -26,10 +26,9 @@ vendor/lib/modules/wmt_chrdev_wifi.ko:product/vendor_overlay/30/lib/modules/wmt_
 vendor/lib/modules/wmt_drv.ko:product/vendor_overlay/30/lib/modules/wmt_drv.ko
 
 # Mediatek IMS
-# IMS
 bin/vtservice
 etc/init/init.vtservice.rc
-etc/permissions/privapp-permissions-mediatek.xml
+lib/libcomutils.so
 lib/libimsma.so
 lib/libimsma_adapt.so
 lib/libimsma_rtp.so
@@ -43,12 +42,17 @@ lib/libsink.so
 lib/libsource.so
 lib/libvcodec_cap.so
 lib/libvcodec_capenc.so
+lib/vendor.mediatek.hardware.videotelephony@1.0.so:system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 lib/libvt_avsync.so
+lib64/vendor.mediatek.hardware.videotelephony@1.0.so:system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 lib64/libmtk_vt_wrapper.so
 lib64/libmtkavenhancements.so
 lib64/libmtkperf_client.so
 lib64/libvcodec_cap.so
 lib64/libvcodec_capenc.so
+vendor/lib/vendor.mediatek.hardware.videotelephony@1.0.so
+vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+
 
 # Dirac libs
 lib64/libdpframework.so:product/vendor_overlay/29/lib64/libdpframework.so
