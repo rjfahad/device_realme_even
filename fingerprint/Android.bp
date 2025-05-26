@@ -12,13 +12,12 @@ cc_binary {
         "-Wno-unused-parameter",
     ],
     shared_libs: [
-        "libcutils",
-        "liblog",
-        "libhidlbase",
-        "libhardware",
-        "libutils",
         "libbase",
+        "libhidlbase",
+        "libutils",
         "android.hardware.biometrics.fingerprint@2.1",
+        "android.hardware.biometrics.fingerprint@2.2",
+        "android.hardware.biometrics.fingerprint@2.3",
         "vendor.oplus.hardware.biometrics.fingerprint@2.1",
     ],
 }
