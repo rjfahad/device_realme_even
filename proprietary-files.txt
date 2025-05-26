@@ -48,7 +48,8 @@ lib64/libvcodec_capenc.so
 
 
 # Dirac libs
-lib64/libdpframework.so:product/vendor_overlay/29/lib64/libdpframework.so
+lib64/libdpframework.so:product/vendor_overlay/30/lib/libdpframework.so
+lib64/libdpframework.so:product/vendor_overlay/30/lib64/libdpframework.so
 etc/audio_effects.xml:product/vendor_overlay/29/etc/audio_effects.xml
 etc/diracmobile.config:product/vendor_overlay/29/etc/diracmobile.configo
 lib/libDiracAPI_SHARED.so:product/vendor_overlay/29/lib/libDiracAPI_SHARED.so
