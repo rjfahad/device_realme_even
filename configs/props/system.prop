@@ -29,8 +29,6 @@ ro.config.vc_call_vol_steps=7
     ro.mtk_perf_fast_start_win=1 
     ro.mtk_perf_response_time=1
 
-    ro.control_privapp_permissions=log
-
     debug.sf.latch_unsignaled=1 
     ro.surface_flinger.has_HDR_display=true 
     ro.surface_flinger.has_wide_color_display=true 
