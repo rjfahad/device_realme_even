@@ -134,6 +134,7 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 8053063680
 
 #Props
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true

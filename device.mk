@@ -45,6 +45,10 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 # Extra VNDK Versions
 PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
+# Inherit several Android Go Configurations(Beneficial for everyone, even on non-Go devices)
+PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
+PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
+
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
@@ -82,6 +86,7 @@ PRODUCT_COPY_FILES += \
 # HIDL
 PRODUCT_PACKAGES += \
     libhidltransport \
+    libhardware \
     libhwbinder
 
 # Configstore
@@ -129,18 +134,16 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Camera
 PRODUCT_PACKAGES += \
     GoogleCameraGo
-    
-# LibshimShowlogo
-PRODUCT_PACKAGES += \
-libshim_showlogo
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
+    frameworks/native/data/etc/android.software.controls.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.controls.xml \
+    $(DEVICE_PATH)/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
 
 # Properties
 -include $(DEVICE_PATH)/configs/props/system_prop.mk
 -include $(DEVICE_PATH)/configs/props/system_ext.prop
+-include $(DEVICE_PATH)/configs/props/product.prop
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Recovery

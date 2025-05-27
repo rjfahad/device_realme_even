@@ -8,10 +8,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.google.camera \
     vendor.camera.aux.packageblacklist=org.telegram.messenger,com.microsoft.teams,com.discord
 
-# Audio
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.vc_call_vol_steps=7
-
 # Hardware Acceleration
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     video.accelerate.hw=1 \
@@ -25,12 +21,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1
-
-# LMKD
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.lmk.psi_complete_stall_ms=150 \
-    ro.lmk.swap_free_low_percentage=20 \
-    ro.lmk.kill_timeout_ms=100
 
 # NFC
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -72,29 +62,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.device_config.runtime_native.usap_pool_enabled=true
 
-# Tweak the memory management of the device, enable more background apps.. etc..
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.fha_enable=true \
-    ro.sys.fw.bg_apps_limit=32 \
-    ro.config.dha_cached_max=16 \
-    ro.config.dha_empty_max=42 \
-    ro.config.dha_empty_init=32 \
-    ro.config.dha_lmk_scale=0.545 \
-    ro.config.dha_th_rate=2.3 \
-    ro.config.sdha_apps_bg_max=64 \
-    ro.config.sdha_apps_bg_min=8
-
-# GBoard
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.ime.kb_pad_port_b=1 \
-    ro.com.google.ime.corner_key_r=35
-
-# WFD
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.wfd.nohdcp=1 \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0
-
 # Props from realme UI 2.0
 
 # Audio
@@ -130,17 +97,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Charger
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.charger.enable_suspend=true
-
-# Colors
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.sys.sf.color_saturation=1.1 \
-    persist.sys.sf.native_mode=0
-
-# Renderengine
-PRODUCT_PRODUCT_PROPERTIES += \
-    debug.hwui.renderer=skiagl \
-    debug.renderengine.backend=skiaglthreaded \
-    renderthread.skia.reduceopstasksplitting=true
 
 # Soc
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
