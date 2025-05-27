@@ -129,6 +129,10 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Camera
 PRODUCT_PACKAGES += \
     GoogleCameraGo
+    
+# LibshimShowlogo
+PRODUCT_PACKAGES += \
+libshim_showlogo
 
 # Permissions
 PRODUCT_COPY_FILES += \
