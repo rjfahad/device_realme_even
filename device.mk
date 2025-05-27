@@ -135,8 +135,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
 
 # Properties
--include $(DEVICE_PATH)/configs/props/system.prop
--include $(DEVICE_PATH)/configs/props/product.prop
+-include $(DEVICE_PATH)/configs/props/system_prop.mk
 -include $(DEVICE_PATH)/configs/props/system_ext.prop
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
