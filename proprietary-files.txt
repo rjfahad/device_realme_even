@@ -38,6 +38,8 @@ lib/libsource.so
 lib/libvcodec_cap.so
 lib/libvcodec_capenc.so
 lib/libvt_avsync.so
+lib64/libvsim-adaptor-client.so
+lib/libvsim-adaptor-client.so
 lib64/libmtk_vt_wrapper.so
 lib64/libmtkavenhancements.so
 lib64/libmtkperf_client.so
