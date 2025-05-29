@@ -1,48 +1,100 @@
+service fps_hal /odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service
+    # "class hal" causes a race condition on some devices due to files created
+    # in /data. As a workaround, postpone startup until later in boot once
+    # /data is mounted.
+    class late_start
+    user system
+    group system input uhid
+
+service oppo_fingerprints_sh /vendor/bin/sh /odm/bin/init.oppo.fingerprints.sh
+    class main
+    user root
+    oneshot
+
 on boot
+
+#for jiiov_fp.
+    chown system system /dev/jiiov_fp
+    chmod 0666 /dev/jiiov_fp
+
 #for goodix_fp.
     chown system system /dev/goodix_fp
 
-#ifdef VENDOR_EDIT
-#Qingwen.Liu@RM.BSP.Fingerprint.Basic, 2018/11/23, modify for silead_capactiy factoryTest/frrfarTest
-    import /vendor/etc/init/vendor.silead.hardware.fingerprintext@1.0-service.rc
-#endif /* VENDOR_EDIT */
+#for egis fp
+    chown system system /dev/esfp0
+    chmod 0660 /sys/bus/platform/devices/egis_input/navigation_enable
+    chmod 0660 /sys/bus/platform/devices/egis_input/navigation_event
+    chown system  system /sys/bus/platform/devices/egis_input/navigation_enable
+    chown system  system /sys/bus/platform/devices/egis_input/navigation_event
+
+#for chipone 
+    chmod 660 /dev/fpsensor
+    chown system system /dev/fpsensor
+
+#for silead fp
+    chown system system /dev/silead_fp
+    chmod 0666 /dev/silead_fp
 
 on post-fs-data
-    #ifdef VENDOR_EDIT
+
+    #ifdef OPLUS_FEATURE_FINGERPRINT
     #Ran.Chen@EXP.BSP.Fingerprint.Basic, 2017/07/12, modify for fpc in TRUSTONIC
     chown system  system /sys/bus/platform/devices/fpc_interrupt/clk_enable
     chown system  system /sys/bus/platform/devices/fpc_interrupt/wakelock_enable
     chown system  system /sys/bus/platform/devices/fpc_interrupt/irq
     chown system  system /sys/bus/platform/devices/fpc_interrupt/irq_enable
+    chown system  system /sys/bus/platform/devices/fpc_interrupt/irq_unexpected
+    chown system  system /sys/bus/platform/devices/fpc_interrupt/regulator_enable
     chmod 0200 /sys/bus/platform/devices/fpc_interrupt/irq_enable
+    chmod 0200 /sys/bus/platform/devices/fpc_interrupt/regulator_enable
     chmod 0200 /sys/bus/platform/devices/fpc_interrupt/clk_enable
     chmod 0200 /sys/bus/platform/devices/fpc_interrupt/wakelock_enable
     chmod 0600 /sys/bus/platform/devices/fpc_interrupt/irq
-    #endif /* VENDOR_EDIT */
+    chmod 0660 /sys/bus/platform/devices/fpc_interrupt/irq_unexpected
+    #endif /* OPLUS_FEATURE_FINGERPRINT */
 
-    #xiaoyu.wang@ODM_HQ.FINGERPRINT.ET520 2018/10/12 add for shendun fingerprint sepolicy
-    chmod 0660 /dev/esfp0
-    chown system system /dev/esfp0
-    # egis fp egis_input sys nodes 20190110
-    chown system system /sys/devices/platform/egis_input/navigation_event
-    chown system system /sys/devices/platform/egis_input/navigation_enable
-    chmod 0666 /sys/devices/platform/egis_input/navigation_event
-    chmod 0666 /sys/devices/platform/egis_input/navigation_enable
+    #Zhaoliang.Shi@WT.BSP.Fingerprint , 2021/03/03, modify for fpc in TRUSTONIC
+    chown system system /sys/bus/platform/devices/fpc_fp/clk_enable
+    chown system system /sys/bus/platform/devices/fpc_fp/wakelock_enable
+    chown system system /sys/bus/platform/devices/fpc_fp/irq
+    chown system system /sys/bus/platform/devices/fpc_fp/irq_enable
+    chown system system /sys/bus/platform/devices/fpc_interrupt/regulator_enable
+    chown system system /sys/bus/platform/devices/fpc_interrupt/irq_unexpected
+    chmod 0200 /sys/bus/platform/devices/fpc_fp/irq_enable
+    chmod 0200 /sys/bus/platform/devices/fpc_fp/clk_enable
+    chmod 0200 /sys/bus/platform/devices/fpc_fp/wakelock_enable
+    chmod 0600 /sys/bus/platform/devices/fpc_fp/irq
+    chmod 0200 /sys/bus/platform/devices/fpc_interrupt/regulator_enable
+    chmod 0200 /sys/bus/platform/devices/fpc_interrupt/irq_unexpected
 
-    #xiaoyu.wang@ODM_HQ.FINGERPRINT.ET520 2018/10/12 add for shendun fingerprint sepolicy
+    #ifdef OPLUS_FEATURE_FINGERPRINT
+    #zhoubo@BSP.Biometrics.Fingerprint, 2020/09/10, modify for fpc in QCOM (SM6125R Homer)
+    chown system system /sys/bus/platform/devices/soc:fpc_fpc1020/irq
+    chown system system /sys/bus/platform/devices/soc:fpc_fpc1020/irq_enable
+    chown system system /sys/bus/platform/devices/soc:fpc_fpc1020/regulator_enable
+    chown system system /sys/bus/platform/devices/soc:fpc_fpc1020/wakelock_enable
+    #endif /* OPLUS_FEATURE_FINGERPRINT */
 
-    #tongze.zhi@ODM_HQ.BSP.FINGERPRINT.GSL6150 2018/10/12 add for fingerprint sepolicy
-    mkdir /data/vendor/silead 0770 system system
-    chmod 0660 /dev/silead_fp
-    chown system system /dev/silead_fp
-    #tongze.zhi@ODM_HQ.BSP.FINGERPRINT.GSL6150 2018/10/12 add for fingerprint sepolicy
 #-----------------------  for optical sensor begin    ---------------------
     mkdir /data/vendor/fingerprint 0770 system system
     mkdir /mnt/vendor/persist/fingerprint 0770 system system
     chown system system /sys/kernel/oppo_display/hbm
 #-----------------------   for optical sensor end     ---------------------
-#add for egis fp save images
-    mkdir /data/vendor/egis 0770 system system
+#add for silead_optical_fp
+    mkdir /data/vendor/silead 0770 system system
+    mkdir /mnt/vendor/persist/fingerprint/silead 0770 system system
+
+#add for egis optical fp
+    mkdir /data/vendor/optical_fingerprint   0770 system system
+
+#add for jiiov optical fp
+    mkdir /data/vendor/FactoryTestReport   0770 system system
+    mkdir /mnt/vendor/persist/fingerprint/jiiov 0770 system system
+
+
+#Ziqing.Guo@EXP.BSP.Fingerprint.Basic, 2019/08/17, modify for sdsp init fail
+on property:sys.boot_completed=1
+    setprop vendor.oppo.biometrics.fingerprint.boot_completed 1
 
 service fps_hal.RMX3191 /system/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.RMX3191
     # "class hal" causes a race condition on some devices due to files created
@@ -51,8 +103,3 @@ service fps_hal.RMX3191 /system/bin/hw/android.hardware.biometrics.fingerprint@2
     class late_start
     user system
     group system input uhid
-
-service oppo_fingerprints_sh /vendor/bin/sh /vendor/bin/init.oppo.fingerprints.sh
-    class main
-    user root
-    oneshot
