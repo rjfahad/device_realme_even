@@ -1,2 +1,9 @@
 soong_namespace {
+    imports: [
+        "vendor/realme/RMX3191",
+    ],
 }
+
+subdirs = [
+    "usb",
+]
