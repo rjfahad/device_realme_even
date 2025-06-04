@@ -20,6 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
 
 # Inherit from device makefile
 $(call inherit-product, device/realme/RMX3191/device.mk)
@@ -32,6 +33,11 @@ PRODUCT_MODEL := realme c25
 PRODUCT_MANUFACTURER := realme
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_BOOT_ANIMATION_RES := 720
+
+
+# LineageOS ext
+TARGET_GAPPS_ARCH := arm64
+LINEAGE_BUILDTYPE := GAPPS
 
 PRODUCT_GMS_CLIENTID_BASE := android-realme
 
