@@ -116,6 +116,11 @@ PRODUCT_SOONG_NAMESPACES += \
      hardware/mediatek \
      hardware/oplus
 
+# APNs
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+   
+
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl

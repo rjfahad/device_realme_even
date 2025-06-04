@@ -18,6 +18,9 @@ git clone https://github.com/cumaRull/vendor_realme_RMX3191.git -b rui4-oss ./ve
 echo "successfully"
 echo "clone Kernel prebuilt"
 git clone https://github.com/cumaRull/kernel_realme_RMX3191-prebuilt.git -b master ./device/realme/RMX3191-kernel
-git clone hhttps://github.com/HyperTeam/android_packages_apps_RealmeParts.git -b lineage-20 ./packages/apps/RealmeParts
+git clone https://github.com/HyperTeam/android_packages_apps_RealmeParts.git -b lineage-20 ./packages/apps/RealmeParts
 git clone https://github.com/LineageOS/android_hardware_oplus.git -b lineage-20 ./hardware/oplus
 git clone https://github.com/LineageOS/android_hardware_mediatek.git -b lineage-20 ./hardware/mediatek
+
+rm -rf ./hardware/mediatek/InCallService
+rm -rf ./hardware/oplus/interfaces/
