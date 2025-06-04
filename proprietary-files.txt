@@ -1,3 +1,10 @@
+# Bluetooth (AptX)
+lib64/libaptX_encoder.so
+lib64/libaptXHD_encoder.so
+
+lib/libem_support_jni.so
+lib64/libem_support_jni.so
+
 # Kernel Power Off Charging (KPOC) - from RMX3191
 bin/kpoc_charger|5a1df1ce79db1ec31caea4d4c3c4d896066b1193
 etc/init/kpoc_charger.rc|2ce485c39956849bd2294428d801c3c26ec1c040
@@ -29,18 +36,24 @@ lib64/libvt_avsync.so
 lib64/libmtk_vt_wrapper.so
 lib64/libvsim-adaptor-client.so
 lib/libvsim-adaptor-client.so
--framework/mediatek-common.jar
--framework/mediatek-framework.jar
+
+framework/mediatek-common.jar
+framework/mediatek-framework.jar
 framework/mediatek-gwsd.jar
 framework/mediatek-gwsdv2.jar
--framework/mediatek-ims-base.jar
--framework/mediatek-ims-common.jar
+framework/mediatek-ims-base.jar
+framework/mediatek-ims-common.jar
 framework/mediatek-ims-extension-plugin.jar
--framework/mediatek-telecom-common.jar
--framework/mediatek-telephony-base.jar|d7a8d9b752129711f195aa5ea3cc1a952db35bc5
--framework/mediatek-telephony-common.jar
+framework/mediatek-telecom-common.jar
+framework/mediatek-telephony-base.jar|d7a8d9b752129711f195aa5ea3cc1a952db35bc5
+framework/mediatek-telephony-common.jar
+
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 
+# Dirac libs
+lib/libdpframework.so:product/vendor_overlay/31/lib/libdpframework.so
+lib64/libdpframework.so:product/vendor_overlay/31/lib64/libdpframework.so
+
 # ImsService - from plato-user 14 UP1A.230620.001 V14.0.7.0.ULQMIXM release-keys
--priv-app/ImsService/ImsService.apk|62e6a0c457812366623630dffef27b0bf5ca7fad
+priv-app/ImsService/ImsService.apk|62e6a0c457812366623630dffef27b0bf5ca7fad
