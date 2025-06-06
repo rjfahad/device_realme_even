@@ -1,0 +1,12 @@
+# Miscellaneous
+ro.camera.hfr.enable=1
+ro.camera.high.resolution.video.filter.enable=1
+ro.camera.portrait.blur.level.enable=1
+ro.camera.temperature.limit=420
+ro.camera.videoeis.enable=1
+ro.mediatek.version.release=RMX3191_11_A.01_220318
+ro.oplus.audio.support.audiosinglemic=1
+ro.oplus.connectivity.oversea=true
+ro.oppo.market.name=realme Narzo 20
+ro.product.hw=20761
+ro.separate.soft=20761

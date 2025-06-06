@@ -1,0 +1,2 @@
+allow fuelgauged_nvram proc_oppo_ver:file read;
+allow fuelgauged_nvram proc_oppo_opname:file read;
