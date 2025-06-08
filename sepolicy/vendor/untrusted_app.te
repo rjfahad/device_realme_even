@@ -1,3 +1,3 @@
 allow untrusted_app app_data_file:file { execute };
 allow untrusted_app sysfs:file { getattr  read };
-allow { domain -untrusted_app } scary_debug_device:chr_file rw_file_perms
+
