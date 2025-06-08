@@ -13,6 +13,6 @@ git clone --depth=1 --recurse-submodule https://github.com/cumaRull/kernel_realm
 git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master ./prebuilts/clang/host/linux-x86/mylitle-clang
 git clone --depth=1 https://github.com/cumaRull/vendor_realme_RMX3191.git -b oss-rui2-dev ./vendor/realme/RMX3191
 git clone --depth=1 https://github.com/cumaRull/vendor_realme_RMX3191-ims.git -b twelve ./vendor/realme/RMX3191-ims
-git clone --depth=1 https://github.com/cumaRull/device_mediatek_sepolicy_vndr.git -b twelve ./device/mediatek/sepolicy_vndr
+git clone --depth=1 https://github.com/cumaRull/android_device_mediatek_sepolicy_vndr.git -b lineage-19.1 ./device/mediatek/sepolicy_vndr
 echo "Done!"
 
