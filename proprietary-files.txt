@@ -1,5 +1,8 @@
 # Device proprietary files - From sys_oplus_mssi_64_cn-user 11 RP1A.200720.011 RMX3191_11_A.27 release-keys, unless pinned
 
+# ADSP - from RMX2020-alps/vnd_oppo6769/oppo6769:11/RP1A.200720.011/1607914664672:user/release-keys
+vendor/lib64/libadsprpc.so|623a330b0461a426370b6c5fd0b07255b7f8a0c5
+
 # AEE - from Redmi/ares/ares:12/SP1A.210812.016/21.11.8:user/release-keys
 vendor/lib64/libudf.so|f57a4f63592b62c2de72b377021327756fc5fac1
 
