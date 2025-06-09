@@ -8,7 +8,6 @@ genfscon proc  /touchpanel                                                  u:ob
 genfscon sysfs /devices/platform/13040000.mali                              u:object_r:sysfs_gpu:s0
 
 # Health
-genfscon sysfs /devices/platform/mt_charger/power_supply/ac                                                                     u:object_r:sysfs_ac_supply:s0
 genfscon sysfs /devices/platform/mt_charger/power_supply/usb                                                                    u:object_r:sysfs_usb_supply:s0
 genfscon sysfs /devices/platform/mt_charger/power_supply/main                                                                   u:object_r:sysfs_main_supply:s0
 genfscon sysfs /devices/platform/mt_charger/power_supply/charger                                                                u:object_r:sysfs_charger_supply:s0
