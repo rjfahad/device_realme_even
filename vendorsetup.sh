@@ -11,7 +11,7 @@ rm -rf packages/apps/RealmeParts
 rm -rf device/mediatek/sepolicy_vndr
 echo "Cloning Dependencies"
 git clone --depth=1 https://github.com/cumaRull/kernel_realme_RMX3191-prebuilt.git -b RUI2-OSS ./kernel/realme/RMX3191-kernel
-git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master ./prebuilts/clang/host/linux-x86/mylitle-clang
+# git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master ./prebuilts/clang/host/linux-x86/mylitle-clang
 git clone --depth=1 https://github.com/cumaRull/vendor_realme_RMX3191.git -b oss-rui2-dev ./vendor/realme/RMX3191
 git clone --depth=1 https://github.com/cumaRull/vendor_realme_RMX3191-ims.git -b twelve ./vendor/realme/RMX3191-ims
 git clone --depth=1 https://github.com/cumaRull/android_device_mediatek_sepolicy_vndr.git -b lineage-19.1 ./device/mediatek/sepolicy_vndr
