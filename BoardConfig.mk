@@ -86,7 +86,8 @@ TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/mylitle-clang
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-TARGET_KERNEL_NO_GCC := true
+TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS=" -fuse-ld=lld -Wno-unused-command-line-argument"
+TARGET_KERNEL_LLVM_BINUTILS := false
 
 BOARD_MKBOOTIMG_ARGS += --base $(BOARD_KERNEL_BASE)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
