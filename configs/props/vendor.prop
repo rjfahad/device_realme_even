@@ -32,12 +32,12 @@ persist.vendor.camera3.pipeline.bufnum.base.imgo=4
 persist.vendor.camera3.pipeline.bufnum.base.lcso=4
 persist.vendor.camera3.pipeline.bufnum.base.rrzo=4
 persist.vendor.camera3.pipeline.bufnum.base.rsso=5
-persist.vendor.camera3.pipeline.bufnum.min.high_ram.fdyuv=5
+persist.vendor.camera3.pipeline.bufnum.min.high_ram.fdyuv=8
 persist.vendor.camera3.pipeline.bufnum.min.high_ram.imgo=7
 persist.vendor.camera3.pipeline.bufnum.min.high_ram.lcso=7
 persist.vendor.camera3.pipeline.bufnum.min.high_ram.rrzo=7
 persist.vendor.camera3.pipeline.bufnum.min.high_ram.rsso=7
-persist.vendor.camera3.pipeline.bufnum.min.low_ram.fdyuv=5
+persist.vendor.camera3.pipeline.bufnum.min.low_ram.fdyuv=8
 persist.vendor.camera3.pipeline.bufnum.min.low_ram.imgo=6
 persist.vendor.camera3.pipeline.bufnum.min.low_ram.lcso=6
 persist.vendor.camera3.pipeline.bufnum.min.low_ram.rrzo=6
@@ -148,8 +148,8 @@ ro.vendor.mtk_f2fs_enable=1
 ro.soc.manufacturer=Mediatek
 ro.soc.model=MT6768
 ro.vendor.mediatek.platform=MT6768
-ro.vendor.mediatek.version.branch=alps-mp-r0.mp1.tc16sp-pr2
-ro.vendor.mediatek.version.release=alps-mp-r0.mp1.tc16sp-pr2-V1.1
+ro.vendor.mediatek.version.branch=alps-mp-s0.mp1.tc16sp-pr9
+ro.vendor.mediatek.version.release=alps-mp-s0.mp1.tc16sp-pr9-V1
 
 # PQ
 ro.vendor.mtk_pq_color_mode=1
