@@ -4,10 +4,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.1-service.RMX2020",
+    name: "android.hardware.biometrics.fingerprint@2.1-service.RMX3191",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.RMX2020.rc"],
-    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.1-service.RMX2020.xml"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.RMX3191.rc"],
+    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.1-service.RMX3191.xml"],
     relative_install_path: "hw",
     srcs: [
         "BiometricsFingerprint.cpp",

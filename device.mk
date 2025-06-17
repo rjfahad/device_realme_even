@@ -4,21 +4,21 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/realme/RMX2020
+DEVICE_PATH := device/realme/RMX3191
 
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Call proprietary blob setup
-$(call inherit-product, vendor/realme/RMX2020/RMX2020-vendor.mk)
+$(call inherit-product, vendor/realme/RMX3191/RMX3191-vendor.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # IMS
-$(call inherit-product, vendor/realme/RMX2020-ims/RMX2020-ims.mk)
+$(call inherit-product, vendor/realme/RMX3191-ims/RMX3191-ims.mk)
 
-PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Dynamic Partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -131,7 +131,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.RMX2020
+    android.hardware.biometrics.fingerprint@2.1-service.RMX3191
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -147,8 +147,8 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.RMX2020 \
-    android.hardware.health-service.RMX2020-recovery
+    android.hardware.health-service.RMX3191 \
+    android.hardware.health-service.RMX3191-recovery
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -184,7 +184,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.RMX2020
+    android.hardware.light-service.RMX3191
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -335,21 +335,16 @@ PRODUCT_PACKAGES += \
 
 # Runtime Resource Overlays 
 PRODUCT_PACKAGES += \
-    ApertureOverlayRMX2020 \
-    CarrierConfigOverlayRMX2020 \
-    DialerOverlayRMX2020 \
-    FrameworksResOverlayRMX2020 \
-    SettingsOverlayRMX2020 \
-    SettingsProviderOverlayRMX2020 \
-    SystemUIOverlayRMX2020 \
-    TelephonyOverlayRMX2020 \
-    TetheringResOverlayRMX2020 \
-    WifiResOverlayRMX2020
-
-ifneq ($(ARROW_GAPPS),true)
-PRODUCT_PACKAGES += \
-    ApertureQRScannerOverlayRMX2020
-endif
+    ApertureOverlayRMX3191 \
+    CarrierConfigOverlayRMX3191 \
+    DialerOverlayRMX3191 \
+    FrameworksResOverlayRMX3191 \
+    SettingsOverlayRMX3191 \
+    SettingsProviderOverlayRMX3191 \
+    SystemUIOverlayRMX3191 \
+    TelephonyOverlayRMX3191 \
+    TetheringResOverlayRMX3191 \
+    WifiResOverlayRMX3191
 
 # Seccomp
 PRODUCT_COPY_FILES += \
@@ -384,7 +379,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.RMX2020
+    android.hardware.usb@1.0-service.RMX3191
 
 # Vibrator
 TARGET_VIBRATOR_SUPPORTS_EFFECTS := true

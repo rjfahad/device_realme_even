@@ -2,7 +2,7 @@
 /dev/sia81xx_tuning_if 	                                                                                  u:object_r:sia81xx_tuning_if_device:s0
 
 # Biometrics
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.RMX2020           u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.RMX3191           u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|odm)/bin/hw/vendor\.oplus\.hardware\.biometrics\.fingerprint@2\.1-service                        u:object_r:hal_fingerprint_default_exec:s0
 
 # Fingerprint
@@ -10,13 +10,13 @@
 /dev/silead_fp                                                                                            u:object_r:fp_device:s0
 
 # Health
-/(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.RMX2020                                 u:object_r:hal_health_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.RMX3191                                 u:object_r:hal_health_default_exec:s0
 
 # Latency
 /dev/cpu_dma_latency                                                                                      u:object_r:latency_device:s0
 
 # Light
-/vendor/bin/hw/android\.hardware\.light-service\.RMX2020                                                  u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/android\.hardware\.light-service\.RMX3191                                                  u:object_r:hal_light_default_exec:s0
 
 # NFC
 /dev/pn553                                                                                                u:object_r:nfc_device:s0
@@ -25,4 +25,4 @@
 /dev/m_virtual_sensor_misc(/.*)?                                                                          u:object_r:m_virtual_sensor_device:s0 
 
 # USB
-/(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.RMX2020                               u:object_r:hal_usb_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.RMX3191                               u:object_r:hal_usb_default_exec:s0

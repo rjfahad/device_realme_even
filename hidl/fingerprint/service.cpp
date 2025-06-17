@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.RMX2020"
+#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.RMX3191"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
