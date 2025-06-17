@@ -8,7 +8,9 @@ rm -rf vendor/realme/RMX3191
 rm -rf vendor/realme/RMX3191-ims
 rm -rf packages/apps/RealmeParts
 rm -rf device/mediatek/sepolicy_vndr
+rm -rf hardware/mediatek
 echo "Cloning Dependencies"
+git clone --depth=1 https://github.com/LineageOS/android_hardware_mediatek.git -b lineage-20 ./hardware/mediatek
 git clone --depth=1 --recurse-submodule https://github.com/cumaRull/kernel_realme_RMX3191.git -b rui2 ./kernel/realme/RMX3191
 git clone --depth=1 https://github.com/HyperTeam/android_packages_apps_RealmeParts.git -b lineage-20 ./packages/apps/RealmeParts
 git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master ./prebuilts/clang/host/linux-x86/mylitle-clang
