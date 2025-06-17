@@ -96,11 +96,6 @@ PRODUCT_PACKAGES += \
     RemoveCameraPackages \
     Aperture
 
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images_vendor \
-    product_charger_res_images_vendor
-
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
