@@ -15,7 +15,7 @@ rm -rf kernel/realme/RMX3191
 echo "succesfully"
 
 echo "clone vt"
-git clone https://github.com/cumaRull/vendor_realme_RMX3191.git -b rui4-oss ./vendor/realme/RMX3191
+git clone https://github.com/cumaRull/vendor_realme_RMX3191.git -b lineage-20.0 ./vendor/realme/RMX3191
 echo "successfully"
 echo "clone Kernel prebuilt"
 git clone https://github.com/cumaRull/kernel_realme_RMX3191-prebuilt.git -b master ./device/realme/RMX3191-kernel
