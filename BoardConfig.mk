@@ -5,7 +5,6 @@
 #
 
 DEVICE_PATH := device/realme/RMX3191
-KERNEL_PATH := $(DEVICE_PATH)-kernel
 BOARD_VENDOR := realme
 
 #Build
@@ -80,15 +79,14 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Kernel
-TARGET_FORCE_PREBUILT_KERNEL := true
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)-kernel/Image.gz
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb
-BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)-kernel/dtb
+BOARD_KERNEL_IMAGE_NAME := Image.gz
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/realme/RMX3191
+TARGET_KERNEL_CONFIG := c25_defconfig
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/mylitle-clang
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img
-BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)-kernel/vendor-modules/*.ko)
-
-TARGET_KERNEL_CONFIG := defconfig
-TARGET_KERNEL_SOURCE := $(DEVICE_PATH)-kernel/kernel-headers
 
 # Partitions (Dynamic)
 BOARD_SUPER_PARTITION_GROUPS := main
