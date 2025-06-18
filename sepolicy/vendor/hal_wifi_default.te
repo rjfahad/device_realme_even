@@ -1,0 +1,5 @@
+# Set and get wlan_fw_prop (vendor.wlan.)
+type vendor_wlan_fw_prop, property_type;
+
+get_prop(hal_wifi_default, vendor_wlan_fw_prop)
+set_prop(hal_wifi_default, vendor_wlan_fw_prop)
