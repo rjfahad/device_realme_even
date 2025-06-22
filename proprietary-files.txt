@@ -4,7 +4,6 @@
 vendor/lib64/libudf.so
 
 # Audio
-vendor/lib/libalsautils.so:vendor/lib/libalsautils-mtk.so
 vendor/lib/libaudio_engineer_test.so
 vendor/lib/libaudio_param_parser-vnd.so
 vendor/lib/libaudiocompensationfilter_vendor.so
