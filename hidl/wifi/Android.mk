@@ -40,7 +40,7 @@ LOCAL_SHARED_LIBRARIES := \
     liblog \
     libnl \
     libutils \
-    libwifi-hal \
+    libwifi-hal-mtk \
     libwifi-system-iface \
     libxml2 \
     android.hardware.wifi@1.0 \

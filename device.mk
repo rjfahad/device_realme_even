@@ -401,13 +401,13 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service-lazy
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi.supplicant@1.3.vendor:64 \
+    android.hardware.wifi.supplicant@1.3.vendor \
     android.hardware.wifi@1.0-service.RMX3191 \
     android.hardware.wifi.hostapd@1.2.vendor
 
 PRODUCT_PACKAGES += \
-    libkeystore-engine-wifi-hidl:64 \
-    libkeystore-wifi-hidl:64
+    libkeystore-engine-wifi-hidl \
+    libkeystore-wifi-hidl
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
