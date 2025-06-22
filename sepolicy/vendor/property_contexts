@@ -1,17 +1,23 @@
 # Audio
-ro.vendor.tuning_path                       u:object_r:vendor_audio_tunning_prop:s0
-persist.vendor.audio.tuning.def_path        u:object_r:vendor_audio_tunning_prop:s0
+persist.vendor.audio.tuning.def_path           u:object_r:vendor_audio_tuning_prop:s0
+
+# Camera
+vendor.oppo.camera.                            u:object_r:vendor_oplus_camera_prop:s0
+ro.vendor.oplus.camera.                        u:object_r:vendor_oplus_camera_prop:s0
+persist.vendor.camera.                         u:object_r:vendor_oplus_camera_prop:s0
+persist.vendor.camera.privapp.list             u:object_r:vendor_oplus_camera_prop:s0
+persist.vendor.mtkcam.aosp_hal_version         u:object_r:vendor_oplus_camera_prop:s0
 
 # Fingerprint
-persist.vendor.fingerprint.                 u:object_r:vendor_fingerprint_prop:s0
-vendor.fingerprint.                         u:object_r:vendor_fingerprint_prop:s0
+persist.vendor.fingerprint.                    u:object_r:vendor_oplus_fingerprint_prop:s0
+vendor.fingerprint.optical.                    u:object_r:vendor_oplus_fingerprint_prop:s0
+persist.vendor.silead_newalgo.support          u:object_r:vendor_oplus_fingerprint_prop:s0
+vendor.silead.fp.                              u:object_r:vendor_oplus_fingerprint_prop:s0
 
 # Media
-ro.vendor.mtk.omx.log                       u:object_r:vendor_mtk_omx_core_prop:s0
-ro.vendor.mtk_crossmount                    u:object_r:vendor_mtk_crossmount_prop:s0
-ro.vendor.mtk_deinterlace                   u:object_r:vendor_mtk_deinterlace_prop:s0
+ro.vendor.mtk.omx.log                          u:object_r:vendor_mtk_omx_core_prop:s0
+ro.vendor.mtk_crossmount                       u:object_r:vendor_mtk_crossmount_prop:s0
+ro.vendor.mtk_deinterlace                      u:object_r:vendor_mtk_deinterlace_prop:s0
 
-# Vendor device
-ro.vendor.device                            u:object_r:vendor_device_prop:s0
-ro.vendor.nfc_device                        u:object_r:vendor_device_prop:s0
-ro.vendor.power_profile.device              u:object_r:vendor_device_prop:s0
+# Radio
+vendor.oppo.network.                           u:object_r:vendor_oplus_radio_prop:s0
