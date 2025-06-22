@@ -1,0 +1,9 @@
+type init_RMX3191, domain;
+type init_RMX3191_exec, vendor_file_type, exec_type, file_type;
+
+init_daemon_domain(init_RMX3191)
+
+set_prop(init_RMX3191, vendor_device_prop)
+
+allow init_RMX3191 proc_nfc_chipset:file r_file_perms;
+allow init_RMX3191 proc_oppo_operator:file r_file_perms;
