@@ -59,3 +59,5 @@ genfscon sysfs /devices/platform/charger/power_supply/ac/wakeup15               
 genfscon sysfs /devices/platform/charger/power_supply/battery/wakeup16                                                  u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/charger/power_supply/battery/wakeup17          					                    u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup15                                                      u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup16             					                        u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/11012000.spi2/spi_master/spi2/spi2.0/wakeup     					                    u:object_r:sysfs_wakeup:s0
