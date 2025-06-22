@@ -398,9 +398,6 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service-lazy
-
-PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service.RMX3191 \
     android.hardware.wifi.supplicant@1.3.vendor:64 \
     android.hardware.wifi.hostapd@1.2.vendor
