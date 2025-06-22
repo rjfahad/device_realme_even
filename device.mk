@@ -83,8 +83,9 @@ TARGET_SCREEN_WIDTH := 720
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.device@3.6.vendor \
-    android.hardware.camera.provider@2.6.vendor
+    android.hardware.camera.common@1.0.vendor:64 \
+    android.hardware.camera.device@3.6.vendor:64 \
+    android.hardware.camera.provider@2.6.vendor:64
 
 PRODUCT_PACKAGES += \
     libstdc++.vendor
@@ -307,7 +308,11 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor
 
 PRODUCT_PACKAGES += \
-    libshim_vtservice
+    libshim_vtservice \
+    libshim_audio \
+    libshim_camera_metadata \
+    libshim_mtkcam \
+    libshim_utils
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -396,8 +401,8 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service-lazy
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.3.vendor \
     android.hardware.wifi.supplicant@1.3.vendor \
+    android.hardware.wifi@1.0-service.RMX3191 \
     android.hardware.wifi.hostapd@1.2.vendor
 
 PRODUCT_PACKAGES += \
