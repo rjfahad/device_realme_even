@@ -308,7 +308,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor
 
 PRODUCT_PACKAGES += \
-    libshim_vtservice \
     libshim_audio \
     libshim_camera_metadata \
     libshim_mtkcam \
