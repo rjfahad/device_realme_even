@@ -160,6 +160,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MtkInCallService
 
+# misc
+PRODUCT_PACKAGES += \
+BesLoudness \
+PowerOffAlarm
+
 # Screen density
 PRODUCT_AAPT_CONFIG := xxxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
@@ -177,7 +182,9 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
     
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+PRODUCT_SOONG_NAMESPACES += \
+hardware/mediatek \
+$(DEVICE_PATH)
 	
 	# Speed up
 PRODUCT_DEXPREOPT_SPEED_APPS += \
