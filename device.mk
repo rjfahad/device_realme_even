@@ -112,9 +112,12 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-     hardware/mediatek \
-     hardware/oplus
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/mediatek \
+    hardware/oplus \
+    $(DEVICE_PATH)
+     
 
 # APNs
 PRODUCT_COPY_FILES += \
