@@ -1,9 +1,4 @@
 service fps_hal.RMX3191 /system/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.RMX3191
-    class late_start
-    user system
-    group system
-
-service fps_hal.RMX3191 /system/bin/hw/android.hardware.biometrics.fingerprint@2.3-service.RMX3191
     interface android.hardware.biometrics.fingerprint@2.1::IBiometricsFingerprint default
     interface android.hardware.biometrics.fingerprint@2.2::IBiometricsFingerprint default
     interface android.hardware.biometrics.fingerprint@2.3::IBiometricsFingerprint default
