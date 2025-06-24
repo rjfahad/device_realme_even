@@ -124,6 +124,11 @@ PRODUCT_COPY_FILES += \
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
+
+# Boot ctrl
+PRODUCT_PACKAGES += \
+android.hardware.boot@1.1-impl-qti \
+android.hardware.boot@1.2-impl-qti
     
     # Permissions
 PRODUCT_COPY_FILES += \
@@ -207,5 +212,12 @@ BesLoudness
 # OplusDoze
 PRODUCT_PACKAGES += \
 OplusDoze
+
+# Misc
+PRODUCT_PACKAGES += \
+android.hardware.memtrack-service.mediatek-mali \
+vendor.lineage.powershare@1.0-service.oplus \
+OplusEuicc \
+KeyHandler 
 
 
