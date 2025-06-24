@@ -90,6 +90,8 @@ TARGET_KERNEL_SOURCE := kernel/realme/RMX3191
 TARGET_KERNEL_CONFIG := c25_ksu_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/mylitle-clang
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)-kernel/dtb
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img
 
 # Partitions (Dynamic)
@@ -112,6 +114,9 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
+
+# Prebuilt vendor configuration
+BUILD_WITHOUT_VENDOR := true
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
