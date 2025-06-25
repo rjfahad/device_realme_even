@@ -160,13 +160,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     MtkInCallService
 
-# misc
-PRODUCT_PACKAGES += \
-BesLoudness \
-PowerOffAlarm \
-android.hardware.vibrator-service.mediatek \
-android.hardware.power-service-mediatek
-
 # Screen density
 PRODUCT_AAPT_CONFIG := xxxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
