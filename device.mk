@@ -163,7 +163,9 @@ PRODUCT_PACKAGES += \
 # misc
 PRODUCT_PACKAGES += \
 BesLoudness \
-PowerOffAlarm
+PowerOffAlarm \
+android.hardware.vibrator-service.mediatek \
+android.hardware.power-service-mediatek
 
 # Screen density
 PRODUCT_AAPT_CONFIG := xxxhdpi
@@ -182,9 +184,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
     
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-hardware/mediatek \
-$(DEVICE_PATH)
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 	
 	# Speed up
 PRODUCT_DEXPREOPT_SPEED_APPS += \
