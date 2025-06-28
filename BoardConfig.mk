@@ -112,10 +112,10 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_USES_RECOVERY_AS_BOOT := false
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6768
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
