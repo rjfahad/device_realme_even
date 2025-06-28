@@ -18,7 +18,7 @@ echo "clone vt"
 git clone https://github.com/cumaRull/vendor_realme_RMX3191.git -b lineage-20.0 ./vendor/realme/RMX3191
 echo "successfully"
 echo "clone Kernel prebuilt"
-git clone https://github.com/kdrag0n/proton-clang.git -b master ./prebuilts/clang/host/linux-x86/mylitle-clang
+git clone --depth=1 https://github.com/kdrag0n/proton-clang.git -b master ./prebuilts/clang/host/linux-x86/mylitle-clang
 git clone --depth=1 --recurse-submodule https://github.com/cumaRull/kernel_even_4.19.git -b main ./kernel/realme/RMX3191
 git clone https://github.com/HyperTeam/android_packages_apps_RealmeParts.git -b lineage-20 ./packages/apps/RealmeParts
 git clone https://github.com/LineageOS/android_hardware_oplus.git -b lineage-20 ./hardware/oplus
