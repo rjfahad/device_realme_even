@@ -6,7 +6,6 @@ rm -rf vendor/realme/RMX3191
 rm -rf vendor/realme/RMX3191-ims
 rm -rf packages/apps/RealmeParts
 echo "Cloning Dependencies"
-git clone https://github.com/cumaRull/kernel_realme_RMX3191-prebuilt.git -b RUI2-OSS ./device/realme/RMX3191-kernel
 git clone --depth=1 --recurse-submodule https://github.com/cumaRull/kernel_realme_RMX3191.git -b suki-dev ./kernel/realme/RMX3191
 git clone --depth=1 https://gitlab.com/clangsantoni/zyc_clang.git -b 14 ./prebuilts/clang/host/linux-x86/mylitle-clang
 git clone --depth=1 https://github.com/cumaRull/vendor_realme_RMX3191.git -b twelve-rui2 ./vendor/realme/RMX3191
