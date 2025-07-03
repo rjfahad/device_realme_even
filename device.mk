@@ -328,6 +328,10 @@ PRODUCT_PACKAGES += \
 # Renderscript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
+    
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
 
 # Runtime Resource Overlays 
 PRODUCT_PACKAGES += \
@@ -341,6 +345,9 @@ PRODUCT_PACKAGES += \
     TelephonyOverlayRMX3191 \
     TetheringResOverlayRMX3191 \
     WifiResOverlayRMX3191
+    
+# RRO (Runtime Resource Overlay)
+PRODUCT_ENFORCE_RRO_TARGETS += *
 
 # Seccomp
 PRODUCT_COPY_FILES += \
@@ -359,8 +366,6 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    hardware/google/interfaces \
-    hardware/google/pixel \
     hardware/mediatek \
     $(DEVICE_PATH)
 
@@ -376,6 +381,14 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.RMX3191
+    
+# Touch
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.RMX3191
+
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
 
 # Vibrator
 TARGET_VIBRATOR_SUPPORTS_EFFECTS := true

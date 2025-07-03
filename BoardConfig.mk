@@ -64,6 +64,8 @@ TARGET_SCREEN_DENSITY := 320
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_RMX3191
 TARGET_RECOVERY_DEVICE_MODULES := libinit_RMX3191
 
+# Lineage Health
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/mmi_charging_enable
 
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
@@ -107,9 +109,8 @@ TARGET_KERNEL_CONFIG := RMX3191_ksu_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/mylitle-clang
 BOARD_KERNEL_IMAGE_NAME := Image.gz
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)-kernel/dtb
-BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)-kernel/dtb
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS=" -fuse-ld=lld -Wno-unused-command-line-argument"
 TARGET_KERNEL_LLVM_BINUTILS := false
 BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)-kernel/vendor-modules/*.ko)
@@ -167,11 +168,19 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 # Security patch level
 VENDOR_SECURITY_PATCH := 2022-05-05
 
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
 # Sepolicy
 include device/mediatek/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 
-# Wifi
+# Vibrator
+TARGET_VIBRATOR_SUPPORTS_EFFECTS := true
+
+# Wi-Fi
+BOARD_HOSTAPD_DRIVER := NL80211
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+
