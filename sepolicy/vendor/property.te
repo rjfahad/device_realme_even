@@ -1,3 +1,11 @@
-vendor_internal_prop(vendor_audio_tunning_prop)
-vendor_internal_prop(vendor_fingerprint_prop)
-vendor_public_prop(vendor_device_prop)
+# Audio
+vendor_public_prop(vendor_audio_tuning_prop)
+
+# Camera
+vendor_public_prop(vendor_oplus_camera_prop)
+
+# Fingerprint
+vendor_public_prop(vendor_oplus_fingerprint_prop)
+
+# Radio
+vendor_public_prop(vendor_oplus_radio_prop)

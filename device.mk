@@ -110,8 +110,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack-service.mediatek-mali
 
 # Doze
-PRODUCT_PACKAGES += \
-    OplusDoze
+#PRODUCT_PACKAGES += \
+#    OplusDoze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -366,6 +366,8 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
+    hardware/google/interfaces \
+    hardware/google/pixel \
     hardware/mediatek \
     $(DEVICE_PATH)
 
@@ -382,10 +384,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.RMX3191
     
-# Touch
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.RMX3191
-
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
@@ -410,13 +408,16 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service.RMX3191 \
-    android.hardware.wifi.supplicant@1.3.vendor:64 \
-    android.hardware.wifi.hostapd@1.2.vendor
+    android.hardware.wifi-service-lazy
 
 PRODUCT_PACKAGES += \
-    libkeystore-engine-wifi-hidl:64 \
-    libkeystore-wifi-hidl:64
+    hostapd \
+    android.hardware.wifi@1.3.vendor \
+    android.hardware.wifi.supplicant@1.3.vendor
+
+PRODUCT_PACKAGES += \
+    libkeystore-engine-wifi-hidl \
+    libkeystore-wifi-hidl
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)

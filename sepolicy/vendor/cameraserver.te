@@ -1,0 +1,9 @@
+type vendor_audio_prop, property_type;
+
+allow cameraserver init:unix_stream_socket connectto;
+allow cameraserver property_socket:sock_file write;
+
+get_prop(cameraserver, vendor_mtk_camera_prop)
+get_prop(cameraserver, exported_default_prop)
+get_prop(cameraserver, vendor_audio_prop)
+set_prop(cameraserver, system_prop)
