@@ -43,7 +43,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     audio_policy.stub \
-    audio.bluetooth.default \
+#    audio.bluetooth.default \
     audio.r_submix.default \
     audio.usb.default \
 
@@ -310,7 +310,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_audio \
     libshim_camera_metadata \
-    libshim_mtkcam \
+#    libshim_mtkcam \
     libshim_utils
 
 # Ramdisk
