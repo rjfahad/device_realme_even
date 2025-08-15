@@ -52,11 +52,6 @@ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-im
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
-# Audio
-PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.bluetooth.default  
-
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
     $(DEVICE_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PLATFORM_VNDK_VERSION)/etc/audio_policy_configuration.xml \
@@ -102,7 +97,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.mt6768.rc \
     fstab.mt6768 \
-    perf_profile.sh 
+    perf_profile.sh \
+    swap_enable.sh
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -159,6 +155,10 @@ PRODUCT_PACKAGES += \
 # InCallService
 PRODUCT_PACKAGES += \
     MtkInCallService
+    
+ # Symbols
+PRODUCT_PACKAGES += \
+    libshim_showlogo
 
 # Screen density
 PRODUCT_AAPT_CONFIG := xxxhdpi
@@ -195,3 +195,13 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi.hostapd@1.1 \
     TetheringConfigOverlay \
     WifiOverlay
+    
+ # Bluetooth Audio (System-side HAL, sysbta)
+PRODUCT_PACKAGES += \
+    audio.sysbta.default \
+    android.hardware.bluetooth.audio-service-system
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration.xml \
+    $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration_7_0.xml
+    
