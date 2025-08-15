@@ -65,6 +65,7 @@ BUILD_BROKEN_DUP_RULES := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 BOARD_KERNEL_BASE := 0x40078000
@@ -83,6 +84,7 @@ TARGET_KERNEL_SOURCE := kernel/realme/RMX3191
 TARGET_KERNEL_CONFIG := RMX3191_ksu_defconfig
 #TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/mt6768.dtb
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/mylitle-clang
 
@@ -142,6 +144,7 @@ TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_USES_RECOVERY_AS_BOOT := false
 TARGET_NO_RECOVERY := false
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6768
