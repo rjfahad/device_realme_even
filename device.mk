@@ -19,14 +19,14 @@ DEVICE_PATH := device/realme/RMX3191
 # Call proprietary blob setup
 $(call inherit-product, vendor/realme/RMX3191/RMX3191-vendor.mk)
 
-# IMS
-$(call inherit-product, vendor/realme/RMX3191-ims/RMX3191-ims.mk)
-
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+
+# Parts
+$(call inherit-product-if-exists, packages/apps/RealmeParts/parts.mk)
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
