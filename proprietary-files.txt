@@ -1,11 +1,17 @@
-# All unpinned blobs are from RMX2020_11_C.05
+# All unpinned blobs are from RMX3191_11_A.27
+
+# APNs
+etc/apns-conf.xml:product/etc/apns-conf.xml
 
 # Bluetooth (AptX)
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
 
+# EngineerMode
+-priv-app/EngineerMode/EngineerMode.apk
 lib/libem_support_jni.so
 lib64/libem_support_jni.so
+
 
 # Kernel Power Off Charging (KPOC)
 bin/kpoc_charger
@@ -21,8 +27,19 @@ vendor/lib/modules/wmt_chrdev_wifi.ko:product/vendor_overlay/30/lib/modules/wmt_
 vendor/lib/modules/wmt_drv.ko:product/vendor_overlay/30/lib/modules/wmt_drv.ko
 
 # Mediatek IMS
+-framework/mediatek-common.jar
+-framework/mediatek-framework.jar
+-framework/mediatek-ims-base.jar
+-framework/mediatek-ims-common.jar
+-framework/mediatek-telecom-common.jar
+-framework/mediatek-telephony-base.jar
+-framework/mediatek-telephony-common.jar
+-priv-app/ImsService/ImsService.apk|fd48e90f3e4dbd91367159fa1025945d5ca8f6fe
 bin/vtservice
 etc/init/init.vtservice.rc
+etc/permissions/privapp-permissions-mediatek.xml
+framework/mediatek-ims-extension-plugin.jar
+framework/mediatek-ims-legacy.jar
 lib/libcomutils.so
 lib/libimsma.so
 lib/libimsma_adapt.so
