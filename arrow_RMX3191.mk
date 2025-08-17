@@ -18,22 +18,20 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common LineageOs stuff.
-$(call inherit-product, vendor/lineage/config/common.mk)
+# Inherit some common ArrowOs stuff.
+$(call inherit-product, vendor/arrow/config/common.mk)
 
 # Inherit from device makefile
 $(call inherit-product, device/realme/RMX3191/device.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_RMX3191
+PRODUCT_NAME := arrow_RMX3191
 PRODUCT_DEVICE := RMX3191
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := realme c25
 PRODUCT_MANUFACTURER := realme
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_BOOT_ANIMATION_RES := 720
-
-ARROW_GAPPS := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-realme
 
