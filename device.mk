@@ -151,7 +151,6 @@ PRODUCT_PACKAGES += \
     
  # Symbols
 PRODUCT_PACKAGES += \
-    libshim_vtservice \
     libshim_showlogo
 
 # Screen density
