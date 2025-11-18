@@ -406,16 +406,16 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi-service-lazy
-
-PRODUCT_PACKAGES += \
-    hostapd \
     android.hardware.wifi@1.3.vendor \
-    android.hardware.wifi.supplicant@1.3.vendor
+    android.hardware.wifi.supplicant@1.2.vendor \
+    android.hardware.wifi.hostapd@1.1.vendor
 
 PRODUCT_PACKAGES += \
     libkeystore-engine-wifi-hidl \
-    libkeystore-wifi-hidl
+    libkeystore-wifi-hidl \
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
+    $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(DEVICE_PATH)/configs/wifi/wifisar.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wifisar.xml \
+    $(DEVICE_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
+    $(DEVICE_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
