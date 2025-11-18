@@ -7,7 +7,7 @@ rm -rf packages/apps/RealmeParts
 rm -rf packages/apps/RealmeDirac
 
 echo "Cloning Dependencies"
-git clone --depth=1 --recurse-submodule https://github.com/cumaRull/kernel_realme_RMX3191.git -b suki-dev ./kernel/realme/RMX3191
+git clone --depth=1 --recurse-submodule https://github.com/cumaRull/kernel_realme_RMX3191.git -b rui2-backupx ./kernel/realme/RMX3191
 git clone --depth=1 https://gitlab.com/clangsantoni/zyc_clang.git -b 14 ./prebuilts/clang/host/linux-x86/mylitle-clang
 git clone --depth=1 https://github.com/cumaRull/vendor_realme_RMX3191.git -b twelve-rui2 ./vendor/realme/RMX3191
 git clone --depth=1 https://github.com/cumaRull/vendor_realme_RMX3191-ims.git -b twelve ./vendor/realme/RMX3191-ims
