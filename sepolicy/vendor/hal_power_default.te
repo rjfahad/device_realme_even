@@ -1,6 +1,4 @@
 typeattribute hal_power_default mlstrustedsubject;
-type vendor_mtk_powerhal_prop, property_type;
-type sysfs_mtkfb, sysfs_type;
 
 allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
 allow hal_power_default cgroup:file r_file_perms;
