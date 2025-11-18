@@ -55,8 +55,6 @@ PRODUCT_PACKAGES += \
     libalsautils \
     libnbaio_mono
 
-PRODUCT_PACKAGES += \
-    MtkInCallService
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
