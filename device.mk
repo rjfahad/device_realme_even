@@ -22,9 +22,6 @@ $(call inherit-product, vendor/realme/RMX3191/RMX3191-vendor.mk)
 # RealmeParts
 $(call inherit-product, packages/apps/RealmeParts/parts.mk)
 
-# IMS
-$(call inherit-product, vendor/realme/RMX3191-ims/RMX3191-ims.mk)
-
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
