@@ -76,8 +76,8 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/realme/even
-TARGET_KERNEL_CONFIG := even_defconfig
+TARGET_KERNEL_SOURCE := kernel/realme/RMX3191
+TARGET_KERNEL_CONFIG := c25_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/mylitle-clang
 BOARD_INCLUDE_RECOVERY_DTBO := true
