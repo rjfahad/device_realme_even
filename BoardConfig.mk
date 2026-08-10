@@ -20,7 +20,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a55
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := RMX3191,even,rmx3191
+TARGET_OTA_ASSERT_DEVICE := RMX3191,even,rmx3191,RMX3195,rmx3195,RMX3197,rmx3197
 
 # AVB (Android Verified Boot)
 BOARD_AVB_ENABLE := true
@@ -110,7 +110,7 @@ TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/mylitle-clang
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
-#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS=" -fuse-ld=lld -Wno-unused-command-line-argument"
 TARGET_KERNEL_LLVM_BINUTILS := false
 

@@ -39,6 +39,46 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>android.hardware.bluetooth.audio</name>
+        <version>2.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.drm</name>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.drm</name>
+        <version>1.4</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.health</name>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.light</name>
+        <version>2.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.memtrack</name>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.power</name>
+        <version>2.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.vibrator</name>
+        <version>2.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.wifi.hostapd</name>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.trust</name>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.aee</name>
         <version>1.0</version>
         <interface>

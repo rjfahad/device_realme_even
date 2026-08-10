@@ -377,8 +377,8 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.RMX3191
     
 # Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.trust@1.0-service
 
 # Vibrator
 TARGET_VIBRATOR_SUPPORTS_EFFECTS := true
