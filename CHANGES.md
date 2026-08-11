@@ -40,23 +40,63 @@
 
 ## WiFi Driver Loading Fixes
 
-### vendor/lib/modules/wmt_chrdev_wifi.ko (NEW)
-- Copied from stock dump — WMT WiFi character device module, prerequisite for wlan driver
+### IMPORTANT: CONFIG_WLAN_DRV_BUILD_IN=y
+- Kernel is built with `CONFIG_WLAN_DRV_BUILD_IN=y` — WiFi driver is compiled INTO the kernel
+- Stock `.ko` files from dump are USELESS (compiled for 4.14.186, kernel is 4.14.282-TridentNotDeath)
+- Vermagic mismatch causes `Exec format error` at boot when kernel tries to load them
+- Do NOT ship `.ko` files — they cause boot-time module loading failures
+
+### proprietary-files.txt
+- Commented out `wmt_chrdev_wifi.ko`, `wlan_drv_gen4m.ko`, `wmt_drv.ko`
+- These stock modules are compiled for 4.14.186 and fail with vermagic mismatch on 4.14.282
 
 ### RMX3191-vendor.mk
-- Added copy-file entries for `wmt_chrdev_wifi.ko` and `wlan_drv_gen4m.ko` (neither was listed before; wlan_drv existed in proprietary but wasn't being installed)
+- Removed copy rules for `wmt_chrdev_wifi.ko` and `wlan_drv_gen4m.ko`
 
-### rootdir/etc/init.wlan_drv.rc (NEW)
+### vendor/realme/RMX3191/proprietary/vendor/lib/modules/
+- Deleted `wmt_chrdev_wifi.ko`, `wlan_drv_gen4m.ko`, `wmt_drv.ko` from source tree
+
+### rootdir/etc/init.wlan_drv.rc
 - Triggers on `vendor.connsys.driver.ready=yes`
-- insmod `wmt_chrdev_wifi.ko`, then `wlan_drv_gen4m.ko`
-- Starts `wlan_assistant` service
-- Matches stock `init.wlan_drv.rc` behavior
+- Starts `wlan_assistant` service (no insmod needed, driver is built-in)
 
 ### rootdir/Android.bp
 - Added prebuilt_etc module for `init.wlan_drv.rc` (installed to `/vendor/etc/init/`)
 
 ### device.mk
 - Added `init.wlan_drv.rc` to PRODUCT_PACKAGES
+
+### rootdir/etc/init.connectivity.rc
+- Added `wpa_supplicant` service definition (was completely missing)
+- Matches RMX2020 working configuration
+- Removed duplicate wmt_loader/wmt_launcher/wlan_assistant definitions (vendor blob's init_connectivity.rc already defines them with class early_hal)
+
+### rootdir/etc/init.mt6768.rc
+- Removed broken imports: `init.volte.rc` and `init.mal.rc` (files don't exist)
+
+### configs/manifests/manifest.xml
+- Added missing WiFi HIDL HAL entries:
+  - `android.hardware.wifi@1.0/1.3::IWifi/default`
+  - `android.hardware.wifi.hostapd@1.1::IHostapd/default`
+  - `android.hardware.wifi.supplicant@1.2::ISupplicant/default`
+  - `vendor.mediatek.hardware.wifi.hostapd@2.0::IHostapd/default`
+
+### configs/props/vendor.prop
+- Added `wifi.interface=wlan0` property
+
+### sepolicy/vendor/hal_wifi_default.te
+- Added get_prop/set_prop for vendor_wlan_fw_prop and vendor_mtk_wifi_hotspot_prop
+
+### sepolicy/vendor/hal_wifi_hostapd_default.te (NEW)
+- Allow hal_wifi_hostapd_default to add/find hostapd hwservice
+
+### sepolicy/vendor/mtk_hal_wifi.te (NEW)
+- get_prop/set_prop for vendor_mtk_wifi_hal_prop
+
+### Recovery flashable zip
+- Created `rmx3191-wifi-fix.zip` at `/home/fahad/android/rmx3191-audio-wifi-flash/`
+- Flashes audio HAL blobs + corrected init rc files
+- No kernel modules — driver is built-in, shipping wrong .ko files causes Exec format error
 
 ## Audio HAL Fixes
 
@@ -69,8 +109,18 @@
 - Same VNDK versioning mismatch as audio.primary
 - Replaced with stock dump versions
 
+### vendor/lib[64]/libmedia_helper.so (ADDED)
+- Stock `audio.primary.mt6768.so` requires `android::TypeConverter<audio_format_t>::mTable` symbol
+- Symbol is defined in stock `libmedia_helper.so` (system) but missing from LineageOS's built version
+- Copied stock `libmedia_helper.so` (32+64-bit) to vendor namespace so audio HAL resolves the symbol
+
 ### sepolicy/vendor/audioserver.te
 - Added `get_prop(audioserver, vendor_default_prop)` — audioserver was denied read access to vendor_default_prop at boot
+
+### Recovery flashable zip
+- Created `rmx3191-audio-wifi-flash.zip` at `/home/fahad/android/` for custom recovery (TWRP)
+- Recovery mounts `/vendor` rw directly, bypassing dm-linear readonly issue
+- Flashes all audio + WiFi fixes in one zip
 
 ## Init RC Fixes
 

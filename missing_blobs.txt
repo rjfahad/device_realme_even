@@ -1,5 +1,5 @@
 # Missing vendor blobs - need to extract from stock device via adb pull
-# Added 2026-08-10, updated 2026-08-11
+# Added 2026-08-10, updated 2026-08-11 (WiFi fixes)
 
 # DRM Widevine - needed for DRM-protected content (Netflix HD, etc.)
 vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml
@@ -49,3 +49,15 @@ vendor/firmware/tp/20761/LIMIT_NF_ILI9882N_TRULY.ini
 
 # DSP compute library
 vendor/lib64/libcdsprpc.so
+
+# WiFi firmware configs (stock has these, need to add to proprietary-files.txt)
+# vendor/firmware/wifi_136826.cfg
+# vendor/firmware/wifi_136827.cfg
+# vendor/firmware/wifi_136828.cfg
+# vendor/firmware/wifi_136829.cfg
+# vendor/firmware/wifi_136879.cfg
+# vendor/firmware/wifi_136880.cfg
+# vendor/firmware/wifi_136881.cfg
+# vendor/firmware/soc1_0_ram_mcu_1a_1_hdr.bin
+# vendor/firmware/soc3_0_ram_bt_1_1_hdr.bin
+# vendor/firmware/soc3_0_ram_bt_1a_1_hdr.bin
