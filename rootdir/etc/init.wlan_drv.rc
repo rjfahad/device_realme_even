@@ -1,4 +1,5 @@
-# WiFi driver is built-in (CONFIG_WLAN_DRV_BUILD_IN=y)
-# No insmod needed, just start wlan_assistant to create wlan0
+# load wifi driver after wmt_loader finish
 on property:vendor.connsys.driver.ready=yes
+  insmod /vendor/lib/modules/wmt_chrdev_wifi.ko
+  insmod /vendor/lib/modules/wlan_drv_gen4m.ko
   start wlan_assistant
