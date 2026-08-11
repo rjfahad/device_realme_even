@@ -11,6 +11,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.wlan_drv.rc",
+    src: "etc/init.wlan_drv.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.modem.rc",
     src: "etc/init.modem.rc",
     sub_dir: "init/hw",
@@ -27,6 +34,13 @@ prebuilt_etc {
 prebuilt_etc {
     name: "init.mt6768.usb.rc",
     src: "etc/init.mt6768.usb.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.project.rc",
+    src: "etc/init.project.rc",
     sub_dir: "init/hw",
     vendor: true,
 }

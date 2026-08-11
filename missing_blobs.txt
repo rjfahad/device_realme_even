@@ -1,0 +1,51 @@
+# Missing vendor blobs - need to extract from stock device via adb pull
+# Added 2026-08-10, updated 2026-08-11
+
+# DRM Widevine - needed for DRM-protected content (Netflix HD, etc.)
+vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml
+vendor/bin/hw/android.hardware.drm@1.4-service.widevine
+vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc
+
+# Camera 3A image memory lib
+vendor/lib64/libcam3a_imem.so
+
+# Camera CCU calibration - pascala (variant mismatch, stock has pascal)
+vendor/bin/libccu_pascala_hlt_front_s5k4h7.dm
+vendor/bin/libccu_pascala_hlt_front_s5k4h7.pm
+
+# Camera CCU calibration - pascali (variant mismatch)
+vendor/bin/libccu_pascali_hlt_depth_gc02m1b.dm
+vendor/bin/libccu_pascali_hlt_depth_gc02m1b.pm
+vendor/bin/libccu_pascali_hlt_front_s5k4h7.dm
+vendor/bin/libccu_pascali_hlt_front_s5k4h7.pm
+vendor/bin/libccu_pascali_qtech_main_ov13b10.dm
+vendor/bin/libccu_pascali_qtech_main_ov13b10.pm
+
+# Camera tuning libs - pascali (variant mismatch)
+vendor/lib/pascali_hlt_depth_gc02m1b_IdxMgr.so
+vendor/lib/pascali_hlt_depth_gc02m1b_tuning.so
+vendor/lib/pascali_hlt_front_s5k4h7_IdxMgr.so
+vendor/lib/pascali_hlt_front_s5k4h7_tuning.so
+vendor/lib/pascali_qtech_main_ov13b10_IdxMgr.so
+vendor/lib/pascali_qtech_main_ov13b10_tuning.so
+vendor/lib64/pascali_hlt_depth_gc02m1b_IdxMgr.so
+vendor/lib64/pascali_hlt_depth_gc02m1b_tuning.so
+vendor/lib64/pascali_hlt_front_s5k4h7_IdxMgr.so
+vendor/lib64/pascali_hlt_front_s5k4h7_tuning.so
+vendor/lib64/pascali_qtech_main_ov13b10_IdxMgr.so
+vendor/lib64/pascali_qtech_main_ov13b10_tuning.so
+
+# APDB (variant mismatch)
+vendor/etc/apdb/APDB_MT6768_S01__W2106
+vendor/etc/apdb/APDB_MT6768_S01__W2106_ENUM
+
+# Touchpanel firmware 20761 variant
+vendor/firmware/tp/20761/FW_NF_ILI7807S_HLT.bin
+vendor/firmware/tp/20761/FW_NF_ILI7807S_HLT_FAE.bin
+vendor/firmware/tp/20761/FW_NF_ILI9882N_TRULY.bin
+vendor/firmware/tp/20761/FW_NF_ILI9882N_TRULY_FAE.bin
+vendor/firmware/tp/20761/LIMIT_NF_ILI7807S_HLT.ini
+vendor/firmware/tp/20761/LIMIT_NF_ILI9882N_TRULY.ini
+
+# DSP compute library
+vendor/lib64/libcdsprpc.so

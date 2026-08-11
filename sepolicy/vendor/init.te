@@ -8,3 +8,19 @@ allow init sysfs_otg_switch:file rw_file_perms;
 allow init sysfs_mtusb_saving:file rw_file_perms;
 allow init sysfs_sensor:file rw_file_perms;
 allow init sysfs_virtual_sensor:file rw_file_perms;
+
+# Touchpanel proc access
+allow init proc_tp:file rw_file_perms;
+
+# Oplus proc version and fingerprint ID access
+allow init proc_oplus_ver:file r_file_perms;
+allow init proc_oplus_fp:file rw_file_perms;
+
+# sysfs writes for init (kernel_init_done, cmode, rps_cpus, read_ahead_kb)
+allow init sysfs:file { write open };
+allow init sysfs_usb_nonplat:file { write open };
+allow init sysfs_net:file { write open };
+allow init sysfs_devices_block:file { write open };
+
+# Sensor sysfs setattr
+allow init sysfs_sensor:file setattr;

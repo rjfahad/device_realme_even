@@ -7,6 +7,15 @@ genfscon proc  /touchpanel                                                  u:ob
 # Graphics
 genfscon sysfs /devices/platform/13040000.mali                              u:object_r:sysfs_gpu:s0
 
+# Light HAL
+genfscon sysfs /devices/platform/1001e000.leds                              u:object_r:sysfs_light:s0
+genfscon sysfs /class/leds/lcd-backlight                                    u:object_r:sysfs_light:s0
+genfscon sysfs /class/leds/red                                              u:object_r:sysfs_light:s0
+genfscon sysfs /class/leds/green                                            u:object_r:sysfs_light:s0
+genfscon sysfs /class/leds/blue                                             u:object_r:sysfs_light:s0
+genfscon sysfs /class/leds/torch                                            u:object_r:sysfs_light:s0
+genfscon sysfs /class/backlight                                             u:object_r:sysfs_graphics:s0
+
 # Health
 genfscon sysfs /devices/platform/mt_charger/power_supply/ac                                                                     u:object_r:sysfs_ac_supply:s0
 genfscon sysfs /devices/platform/mt_charger/power_supply/usb                                                                    u:object_r:sysfs_usb_supply:s0

@@ -309,10 +309,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.recovery.mt6768.rc \
     init.connectivity.rc \
+    init.wlan_drv.rc \
     init.modem.rc \
     init.mt6768.rc \
     init.mt6768.usb.rc \
     init.sensor_1_0.rc \
+    init.project.rc \
     fstab.mt6768 \
     fstab.mt6768.ramdisk \
     ueventd.mtk.rc

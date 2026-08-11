@@ -1,0 +1,42 @@
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+
+on post-fs-data
+
+    # Camera AF device nodes specific to RMX3191
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/LC898212AF
+    chown system camera /dev/LC898212AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+    mkdir mnt/vendor/persist/camera 0777 system camera
+
+    # Touchpanel firmware
+    mkdir /vendor/firmware/tp/20561 0666 root shell
+
+    # Flashlight
+    chmod 0666 /sys/class/flashlightdrv/kd_camera_flashlight/flash1
+    chown media system /sys/class/flashlightdrv/kd_camera_flashlight/flash1
+
+    chmod 0666 /sys/class/flashlightdrv/kd_camera_flashlight/flash2
+    chown media system /sys/class/flashlightdrv/kd_camera_flashlight/flash2
+
+    chmod 0666 /sys/class/flashlightdrv/kd_camera_flashlight/flash3
+    chown media system /sys/class/flashlightdrv/kd_camera_flashlight/flash3
+
+    # SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+on init
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled

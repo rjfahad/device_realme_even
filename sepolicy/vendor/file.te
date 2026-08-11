@@ -21,3 +21,7 @@ type sysfs_mmc_host, fs_type, sysfs_type;
 type sysfs_mtusb_saving, fs_type, sysfs_type;
 type latency_device, dev_type;
 type pps_socket, file_type;
+
+# Light HAL sysfs nodes
+type sysfs_light, fs_type, sysfs_type, mlstrustedobject;
+type sysfs_graphics, fs_type, sysfs_type, mlstrustedobject;
