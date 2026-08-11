@@ -98,6 +98,14 @@
 - Flashes audio HAL blobs + corrected init rc files
 - No kernel modules — driver is built-in, shipping wrong .ko files causes Exec format error
 
+## WiFi Changes Reverted
+
+### 2026-08-11
+- All WiFi-related changes from today reverted
+- Reason: WiFi HAL service binary (`android.hardware.wifi@1.0-service`) missing from vendor, manifest entries alone don't fix WiFi
+- Files reverted: manifest.xml (removed WiFi HALs), vendor.prop (removed wifi.interface), init.connectivity.rc (removed wpa_supplicant), init.mt6768.rc (restored volte/mal imports), init.wlan_drv.rc (restored insmod), hal_wifi_default.te, hal_wifi_hostapd_default.te (deleted), mtk_hal_wifi.te (deleted)
+- WiFi .ko modules restored to vendor tree (wmt_chrdev_wifi.ko, wlan_drv_gen4m.ko, wmt_drv.ko)
+
 ## Audio HAL Fixes
 
 ### vendor/lib[64]/hw/audio.primary.mt6768.so (REPLACED)
@@ -181,6 +189,50 @@
 - Changed from destructive (rm -rf all then re-clone) to clone_if_missing (skip existing dirs)
 - Removed cleanup of RMX3191 vendor/kernel dirs
 - Only cleans leftover "even" device dirs
+
+## Camera HAL Fixes
+
+### vendor/lib[64]/libunwindstack.so (ADDED)
+- Stock `vendor/lib64/libudf.so` requires `unwindstack::Elf::GetRelPc(unsigned long, const unwindstack::MapInfo*)` — the `const` signature
+- LineageOS-built `system/lib64/libunwindstack.so` only exports the non-const signature: `GetRelPc(unsigned long, unwindstack::MapInfo*)`
+- Result: `camerahalserver` crashes in a loop with "CANNOT LINK EXECUTABLE" linker error
+- Fix: ship stock `libunwindstack.so` to `vendor/lib[64]/` so it's found before the system version
+
+### sepolicy/vendor/property_contexts
+- Added `ro.mtk_cam.` label → `vendor_oplus_camera_prop`
+- Fixes SELinux denial: "Do not have permissions to set 'ro.mtk_cam_stereo_camera_support'"
+
+### odm/etc/camera/ calibration files (ADDED)
+- MTK NSCam HAL requires sensor calibration/inputparam files to enumerate cameras
+- Without these, HAL returns zero sensors → camera app shows "Use cases not attached to camera"
+- Files copied from stock ODM dump:
+  - `mtCalibrationCfg.xml` — main camera calibration config
+  - `mtInputparam.xml` — main camera input parameters
+  - `mwCalibrationCfg.xml` — multi-window calibration config
+  - `mwInputparam.xml` — multi-window input parameters
+  - `stereoParams.bin` — stereo/depth camera parameters
+  - `engineer_camera_config` — camera engineer mode config
+- Added to proprietary-files.txt and RMX3191-vendor.mk (TARGET_COPY_OUT_ODM)
+
+### vendor/lib[64]/evenc_* sensor libs (ADDED)
+- `libcameracustom.so` requires the `evenc` variant sensor libs (not `even` variant)
+- Missing libs cause: `dlopen failed: evenc_shinetech_depth_gc02m1b_IdxMgr.so not found`
+- 12 files added (6 lib + 6 lib64):
+  - `evenc_shengtai_front_ov8856_IdxMgr.so` + `_tuning.so`
+  - `evenc_shengtai_macro_ov02b10_IdxMgr.so` + `_tuning.so`
+  - `evenc_shinetech_depth_gc02m1b_IdxMgr.so` + `_tuning.so`
+
+### vendor/lib[64]/even_shinetech_main_s5kjn103_* (ADDED)
+- Missing sensor module manager and tuning lib for main camera
+- `even_shinetech_main_s5kjn103_IdxMgr.so` + `_tuning.so` (lib + lib64)
+
+### vendor/lib[64]/liboppo_platform_hwi.so lib64 (ADDED)
+- Only 32-bit version existed, 64-bit was missing
+- Required by `libmtkcam_hwnode.so`
+
+### net result: 3 cameras detected
+- Camera HAL loads all sensor modules successfully
+- `dumpsys media.camera` reports 3 cameras
 
 ## Missing Blobs (documented in device/realme/RMX3191/missing_blobs.txt)
 - Widevine DRM service + manifest + rc (3 files)

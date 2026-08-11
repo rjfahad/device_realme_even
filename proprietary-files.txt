@@ -288,6 +288,12 @@ vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so
 vendor/lib64/libcdsprpc.so
 
 # Camera
+odm/etc/camera/engineer_camera_config
+odm/etc/camera/mtCalibrationCfg.xml
+odm/etc/camera/mtInputparam.xml
+odm/etc/camera/mwCalibrationCfg.xml
+odm/etc/camera/mwInputparam.xml
+odm/etc/camera/stereoParams.bin
 odm/lib/libormshalclient.so
 odm/lib/vendor.oplus.hardware.orms@1.0.so
 odm/lib64/libormshalclient.so
@@ -1004,7 +1010,8 @@ vendor/lib/liboppo_arcSoftBokehEngine_new.so
 vendor/lib/liboppo_platform_hwi.so
 vendor/lib64/libhwm-oppo.so
 vendor/lib64/liboppo_aisd.so
-vendor/lib64/liboppo_arcSoftBokehEngine_new.so
+ vendor/lib64/liboppo_arcSoftBokehEngine_new.so
+ vendor/lib64/liboppo_platform_hwi.so
 
 # Radio
 odm/lib/vendor.oplus.hardware.appradio@1.0.so
@@ -1589,10 +1596,18 @@ vendor/lib/even_qtech_main_ov13b10_tuning.so
 vendor/lib/even_qtech_main_s5kgm1st03_IdxMgr.so
 vendor/lib/even_qtech_main_s5kgm1st03_tuning.so
 vendor/lib/even_shengtai_front_ov8856_IdxMgr.so
-vendor/lib/even_shengtai_front_ov8856_tuning.so
-vendor/lib/even_shengtai_macro_ov02b10_IdxMgr.so
-vendor/lib/even_shengtai_macro_ov02b10_tuning.so
-vendor/lib/pascala_hlt_front_s5k4h7_IdxMgr.so
+ vendor/lib/even_shengtai_front_ov8856_tuning.so
+ vendor/lib/evenc_shengtai_front_ov8856_IdxMgr.so
+ vendor/lib/evenc_shengtai_front_ov8856_tuning.so
+ vendor/lib/evenc_shengtai_macro_ov02b10_IdxMgr.so
+ vendor/lib/evenc_shengtai_macro_ov02b10_tuning.so
+ vendor/lib/evenc_shinetech_depth_gc02m1b_IdxMgr.so
+ vendor/lib/evenc_shinetech_depth_gc02m1b_tuning.so
+ vendor/lib/even_shengtai_macro_ov02b10_IdxMgr.so
+ vendor/lib/even_shengtai_macro_ov02b10_tuning.so
+ vendor/lib/even_shinetech_main_s5kjn103_IdxMgr.so
+ vendor/lib/even_shinetech_main_s5kjn103_tuning.so
+ vendor/lib/pascala_hlt_front_s5k4h7_IdxMgr.so
 vendor/lib/pascala_hlt_front_s5k4h7_tuning.so
 vendor/lib/pascala_shengtai_macro_ov02b10_IdxMgr.so
 vendor/lib/pascala_shengtai_macro_ov02b10_tuning.so
@@ -1771,10 +1786,18 @@ vendor/lib64/even_qtech_main_ov13b10_tuning.so
 vendor/lib64/even_qtech_main_s5kgm1st03_IdxMgr.so
 vendor/lib64/even_qtech_main_s5kgm1st03_tuning.so
 vendor/lib64/even_shengtai_front_ov8856_IdxMgr.so
-vendor/lib64/even_shengtai_front_ov8856_tuning.so
-vendor/lib64/even_shengtai_macro_ov02b10_IdxMgr.so
-vendor/lib64/even_shengtai_macro_ov02b10_tuning.so
-vendor/lib64/pascala_hlt_front_s5k4h7_IdxMgr.so
+ vendor/lib64/even_shengtai_front_ov8856_tuning.so
+ vendor/lib64/evenc_shengtai_front_ov8856_IdxMgr.so
+ vendor/lib64/evenc_shengtai_front_ov8856_tuning.so
+ vendor/lib64/evenc_shengtai_macro_ov02b10_IdxMgr.so
+ vendor/lib64/evenc_shengtai_macro_ov02b10_tuning.so
+ vendor/lib64/evenc_shinetech_depth_gc02m1b_IdxMgr.so
+ vendor/lib64/evenc_shinetech_depth_gc02m1b_tuning.so
+ vendor/lib64/even_shengtai_macro_ov02b10_IdxMgr.so
+ vendor/lib64/even_shengtai_macro_ov02b10_tuning.so
+ vendor/lib64/even_shinetech_main_s5kjn103_IdxMgr.so
+ vendor/lib64/even_shinetech_main_s5kjn103_tuning.so
+ vendor/lib64/pascala_hlt_front_s5k4h7_IdxMgr.so
 vendor/lib64/pascala_hlt_front_s5k4h7_tuning.so
 vendor/lib64/pascala_shengtai_macro_ov02b10_IdxMgr.so
 vendor/lib64/pascala_shengtai_macro_ov02b10_tuning.so
