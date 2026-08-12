@@ -9,3 +9,6 @@ vendor_public_prop(vendor_oplus_fingerprint_prop)
 
 # Radio
 vendor_public_prop(vendor_oplus_radio_prop)
+
+# WiFi
+vendor_restricted_prop(vendor_wlan_fw_prop)
