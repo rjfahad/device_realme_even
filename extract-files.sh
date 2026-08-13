@@ -68,13 +68,6 @@ function blob_fixup {
         vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek)
             grep -q "libwifi-hal-mtk.so" "${2}" || patchelf --replace-needed "libwifi-hal.so" "libwifi-hal-mtk.so" "${2}"
             ;;
-        vendor/bin/hw/android.hardware.wifi@1.0-service-lazy-mediatek)
-            ;&
-        vendor/bin/hw/hostapd)
-            ;&
-        vendor/bin/hw/wpa_supplicant)
-            grep -q "libcompiler_rt.so" "${2}" || patchelf --add-needed "libcompiler_rt.so" ${2}
-            ;;
         vendor/bin/hw/camerasloganserver)
             ;&
         vendor/lib/libmtkcam_stdutils.so)

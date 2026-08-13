@@ -1071,6 +1071,7 @@ vendor/lib64/libwpa_client.so|5dea3cc7d0aead1bdfa4e91896e1d8c1b3547e3c
 vendor/lib64/vendor.mediatek.hardware.wifi.supplicant@2.0.so|cbf9bd9a24c96e9af056b02ee4752a5a05e3bd47
 vendor/lib64/vendor.mediatek.hardware.wifi.supplicant@2.1.so|a2d1f545a8372a4812a5c075b8138b605c893cdd
 vendor/lib64/vendor.mediatek.hardware.wifi.supplicant@2.2.so|4e468b73726587e3de1dd0324b291f32a2ef9406
+vendor/lib64/vendor.oplus.hardware.wifi.supplicant@2.0.so|b0d6fa220af089e2205fe8e9280d737684d618d7
 vendor/lib64/android.hardware.wifi@1.4.so|39b1abb8d1527de01184eaf07f9faab823682d6d
 vendor/lib/android.hardware.wifi@1.4.so|ed47b1b8897ed49462aad4b87f4e18bb1de2fa60
 
