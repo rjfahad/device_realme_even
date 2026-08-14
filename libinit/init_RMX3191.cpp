@@ -1,94 +1,97 @@
 /*
-   Copyright (c) 2014, The Linux Foundation. All rights reserved.
-   Redistribution and use in source and binary forms, with or without
-   modification, are permitted provided that the following conditions are
-   met:
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above
-      copyright notice, this list of conditions and the following
-      disclaimer in the documentation and/or other materials provided
-      with the distribution.
-    * Neither the name of The Linux Foundation nor the names of its
-      contributors may be used to endorse or promote products derived
-      from this software without specific prior written permission.
-   THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-   WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-   ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-   BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-   BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-   WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-   OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-   IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2014, The Linux Foundation. All rights reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <stdlib.h>
-#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
-#include <sys/_system_properties.h>
+#include <cstdlib>
+#include <cstring>
+#include <fstream>
 #include <sys/sysinfo.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-
-#include <android-base/file.h>
-#include <android-base/logging.h>
-#include <android-base/strings.h>
 
 #include <android-base/properties.h>
-#include "vendor_init.h"
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
 
-#include <fs_mgr_dm_linear.h>
+#include "vendor_init.h"
+#include "property_service.h"
 
 using android::base::GetProperty;
-using android::base::ReadFileToString;
+
+std::vector<std::string> ro_props_default_source_order = {
+    "",
+    "odm.",
+    "system.",
+    "product.",
+    "system_ext.",
+    "vendor.",
+    "vendor_dlkm.",
+};
 
 void property_override(char const prop[], char const value[])
 {
-    prop_info *pi;
+    auto pi = (prop_info *) __system_property_find(prop);
 
-    pi = (prop_info*) __system_property_find(prop);
-    if (pi)
+    if (pi != nullptr) {
         __system_property_update(pi, value, strlen(value));
-    else
+    } else {
         __system_property_add(prop, strlen(prop), value, strlen(value));
+    }
 }
 
-void init_opperator_name_properties()
-{
-    char const *opperator_name_file = "/proc/oppoVersion/operatorName";
-    std::string opperator_name;
+void load_dalvik_properties() {
+    char const *heapstartsize;
+    char const *heapgrowthlimit;
+    char const *heapsize;
+    char const *heapminfree;
+    char const *heapmaxfree;
+    char const *heaptargetutilization;
+    struct sysinfo sys;
 
-    if (ReadFileToString(opperator_name_file, &opperator_name)) {
-        /*
-         * Setup ro.separate.soft value to their OPPO project version
-         * For current OPPO project version, here the following mapping:
-         *
-         * 101 -> NON NFC
-         * 111 -> NON NFC
-         * 112 -> NON NFC
-         * 113 -> NFC
-         * 114 -> NON NFC
-         * 115 -> NON NFC
-         * 116 -> NON NFC
-         * 117 -> NON NFC
-         * 121 -> NON NFC
-         * 122 -> NFC
-         * 123 -> NON NFC
-		 * 124 -> NON NFC
-		 * 125 -> NON NFC
-		 * 126 -> NON NFC
-         */
-        if (opperator_name == "113" || opperator_name == "122") {
-            property_override("ro.boot.product.hardware.sku", "nfc");
-        }
+    sysinfo(&sys);
+
+    if (sys.totalram >= 5ull * 1024 * 1024 * 1024) {
+        // from - phone-xhdpi-6144-dalvik-heap.mk
+        heapstartsize = "16m";
+        heapgrowthlimit = "256m";
+        heapsize = "512m";
+        heaptargetutilization = "0.5";
+        heapminfree = "8m";
+        heapmaxfree = "32m";
+    } else if (sys.totalram >= 3ull * 1024 * 1024 * 1024) {
+        // from - phone-xhdpi-4096-dalvik-heap.mk
+        heapstartsize = "8m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heaptargetutilization = "0.6";
+        heapminfree = "8m";
+        heapmaxfree = "16m";
+    } else {
+        return;
     }
-    else {
-        LOG(ERROR) << "Unable to read operatorName from " << opperator_name_file;
+
+    property_override("dalvik.vm.heapstartsize", heapstartsize);
+    property_override("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
+    property_override("dalvik.vm.heapsize", heapsize);
+    property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
+    property_override("dalvik.vm.heapminfree", heapminfree);
+    property_override("dalvik.vm.heapmaxfree", heapmaxfree);
+}
+
+void set_device_props(const std::string model, const std::string marketname) {
+    const auto set_ro_product_prop = [](const std::string &source,
+                                        const std::string &prop,
+                                        const std::string &value) {
+        auto prop_name = "ro.product." + source + prop;
+        property_override(prop_name.c_str(), value.c_str());
+    };
+
+    for (const auto &source : ro_props_default_source_order) {
+        set_ro_product_prop(source, "device", model);
+        set_ro_product_prop(source, "model", model);
+        set_ro_product_prop(source, "name", model);
+        set_ro_product_prop(source, "marketname", marketname);
     }
 }
 
@@ -102,9 +105,68 @@ void set_avoid_gfxaccel_config() {
     }
 }
 
+void init_opperator_name_properties()
+{
+    char const *opperator_name_file = "/proc/oppoVersion/operatorName";
+    std::string opperator_name;
+    std::string opperator_name_content;
+
+    std::ifstream file(opperator_name_file);
+    if (file.is_open() && std::getline(file, opperator_name_content)) {
+        if (opperator_name_content == "113" || opperator_name_content == "122") {
+            property_override("ro.boot.product.hardware.sku", "nfc");
+        }
+    }
+}
+
 void vendor_load_properties() {
+    std::string prjname = GetProperty("ro.boot.prjname", "");
+
+    if (prjname == "20761") {
+        set_device_props("RMX3191", "Realme C25");
+        property_override("ro.build.fingerprint",
+                          "realme/RMX3191/RMX3191:13/TP1A.220905.001/1716367279348:user/release-keys");
+        property_override("ro.build.description",
+                          "sys_mssi_64_cn_armv82-user 13 TP1A.220905.001 1716367279348 release-keys");
+    } else if (prjname == "20762") {
+        set_device_props("RMX3193", "Realme C25");
+        property_override("ro.build.fingerprint",
+                          "realme/RMX3193/RMX3193:13/SP1A.210812.016/R.14fd79f+1:user/release-keys");
+        property_override("ro.build.description",
+                          "sys_mssi_64_cn_armv82-user 13 SP1A.210812.016 R.14fd79f+1 release-keys");
+    } else if (prjname == "2167A") {
+        set_device_props("RMX3195", "Realme C25S");
+        property_override("ro.build.fingerprint",
+                          "realme/RMX3195/RMX3195:13/SP1A.210812.016/R.127b622_1:user/release-keys");
+        property_override("ro.build.description",
+                          "sys_mssi_64_cn_armv82-user 13 SP1A.210812.016 R.127b622_1 release-keys");
+    } else if (prjname == "2167C") {
+        set_device_props("RMX3195", "Realme C25S");
+        property_override("ro.build.fingerprint",
+                          "realme/RMX3195/RMX3195:13/SP1A.210812.016/R.127b622_1:user/release-keys");
+        property_override("ro.build.description",
+                          "sys_mssi_64_cn_armv82-user 13 SP1A.210812.016 R.127b622_1 release-keys");
+    } else if (prjname == "2167D") {
+        set_device_props("RMX3197", "Realme C25S");
+        property_override("ro.build.fingerprint",
+                          "realme/RMX3197/RMX3197:13/SP1A.210812.016/R.13d452a-1:user/release-keys");
+        property_override("ro.build.description",
+                          "sys_mssi_64_cn_armv82-user 13 SP1A.210812.016 R.13d452a-1 release-keys");
+    } else if (prjname == "216AF") {
+        set_device_props("RMX3430", "Realme Narzo 50A");
+        property_override("ro.build.fingerprint",
+                          "realme/RMX3430/RED8AF:13/SP1A.210812.016/R.182c3f7_cf1b8:user/release-keys");
+        property_override("ro.build.description",
+                          "sys_mssi_64_cn_armv82-user 13 SP1A.210812.016 R.182c3f7_cf1b8 release-keys");
+    } else {
+        // Default to RMX3191
+        set_device_props("RMX3191", "Realme C25");
+    }
+
+    load_dalvik_properties();
     set_avoid_gfxaccel_config();
     init_opperator_name_properties();
+
 #ifdef __ANDROID_RECOVERY__
     std::string buildtype = GetProperty("ro.build.type", "userdebug");
     if (buildtype != "user") {
