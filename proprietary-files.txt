@@ -283,6 +283,8 @@ vendor/lib64/libbluetooth_relayer.so
 vendor/lib64/libbluetoothem_mtk.so
 vendor/lib64/libbt-vendor.so
 vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so
+vendor/etc/init/init.bt_drv.rc
+vendor/lib/modules/bt_drv.ko
 
 # CDSP
 vendor/lib64/libcdsprpc.so

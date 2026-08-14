@@ -56,7 +56,6 @@ fi
 function blob_fixup {
     case "$1" in
         lib/libsink.so)
-            grep -q "libshim_vtservice.so" "${2}" || patchelf --add-needed "libshim_vtservice.so" "${2}"
             ;;
         vendor/lib*/hw/audio.primary.mt6768.so)
             grep -q "libmedia_helper-v30.so" "${2}" || patchelf --replace-needed "libmedia_helper.so" "libmedia_helper-v30.so" "${2}"
