@@ -89,7 +89,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     RemoveCameraPackages \
-    Aperture
+    Aperture \
+    Via \
+    DeviceInfo \
+    RemoveJelly
 
 # Configstore
 PRODUCT_PACKAGES += \
