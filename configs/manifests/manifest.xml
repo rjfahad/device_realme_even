@@ -120,6 +120,13 @@
         <fqname>@1.4::IWifi/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.wifi.hostapd</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IHostapd/default</fqname>
+        <fqname>@1.1::IHostapd/default</fqname>
+        <fqname>@1.2::IHostapd/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.wifi.supplicant</name>
         <transport>hwbinder</transport>
         <fqname>@1.2::ISupplicant/default</fqname>
@@ -253,6 +260,11 @@
         <fqname>@1.0::IVideoTelephony/default</fqname>
     </hal>
 
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.wifi.hostapd</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::IHostapd/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>vendor.mediatek.hardware.wifi.supplicant</name>
         <transport>hwbinder</transport>

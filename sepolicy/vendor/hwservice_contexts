@@ -8,3 +8,7 @@ vendor.oplus.hardware.biometrics.fingerprintservice::IFingerprintHalService  u:o
 # Radio
 vendor.oplus.hardware.radio::IOplusRadio                                     u:object_r:hal_telephony_hwservice:s0
 vendor.oplus.hardware.appradio::IOplusAppRadio                               u:object_r:hal_telephony_hwservice:s0
+
+# Wifi
+vendor.mediatek.hardware.wifi.hostapd::IHostapd                              u:object_r:hal_mtk_hostapd_hwservice:s0
+vendor.oppo.hardware.wifi.hostapd::IOppoHostapd                              u:object_r:hal_oppo_hostapd_hwservice:s0
