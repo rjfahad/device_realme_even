@@ -114,6 +114,10 @@
 /sys/class/leds/blue   delay_on      0664  system   system
 /sys/class/leds/blue   delay_off      0664  system   system
 
+# Charging control (vendor.lineage.health IChargingControl)
+/sys/devices/platform/charger/power_supply/battery   mmi_charging_enable      0664  system  system
+/sys/class/power_supply/battery   mmi_charging_enable      0664  system  system
+
 #GPIO
 /dev/mtgpio               0600   radio      root
 
