@@ -141,7 +141,8 @@ PRODUCT_PACKAGES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.RMX3191 \
-    android.hardware.health-service.RMX3191-recovery
+    android.hardware.health-service.RMX3191-recovery \
+    vendor.lineage.health-service.default
 
 # HIDL
 PRODUCT_PACKAGES += \
