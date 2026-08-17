@@ -6,6 +6,10 @@
 
 DEVICE_PATH := device/realme/even
 
+# Signing keys
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/realme/even/keys/releasekey
+PRODUCT_OTA_PUBLIC_KEYS := vendor/realme/even/keys/releasekey
+
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
