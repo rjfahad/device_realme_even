@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     audio_policy.stub \
+    audio.bluetooth.default \
     audio.r_submix.default \
     audio.usb.default \
 
