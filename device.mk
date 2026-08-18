@@ -115,6 +115,9 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack-service.mediatek-mali
 
 # Doze
+PRODUCT_PACKAGES += \
+    DT2W-Service-EVEN
+
 #PRODUCT_PACKAGES += \
 #    OplusDoze
 

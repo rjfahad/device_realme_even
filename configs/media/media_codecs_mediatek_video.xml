@@ -175,6 +175,9 @@ Only the three quirks included above are recognized at this point:
             <Limit name="concurrent-instances" max="16" />
             <Limit name="performance-point-640x480" value="30" />
         </MediaCodec>
+        <!-- Disabled: OMX.MTK.VIDEO.ENCODER.AVC fails with "BufferType is not Gralloc
+             Source" on Android 13 MediaRecorder (screen recording). Fall back to the
+             software encoder c2.android.avc.encoder.
         <MediaCodec name="OMX.MTK.VIDEO.ENCODER.AVC" type="video/avc" >
             <Limit name="size" min="128x128" max="2400x1080" />
             <Limit name="alignment" value="2x2" />
@@ -186,6 +189,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="concurrent-instances" max="16" />
             <Limit name="performance-point-1920x1088" value="30" />
         </MediaCodec>
+        -->
         <MediaCodec name="OMX.MTK.VIDEO.ENCODER.HEVC" type="video/hevc" >
             <Limit name="size" min="160x128" max="2400x1080" />
             <Limit name="alignment" value="2x2" />
