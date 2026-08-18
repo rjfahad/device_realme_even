@@ -742,8 +742,8 @@ vendor/firmware/wifi_20764.cfg
 vendor/firmware/wifi_20766.cfg
 vendor/firmware/wifi_20767.cfg
 
-# Firmware - from A145PXXU1AWA3
-vendor/firmware/soc1_0_ram_bt_1a_1_hdr.bin|9cd0d79cde76a59ddd8545b1621af1176c5f9605
+# Firmware - from 6768Team/android_vendor_xiaomi_merlinx lineage-20
+vendor/firmware/soc1_0_ram_bt_1a_1_hdr.bin|dae7cedd606b421680415b8d9f255feabeb38fcc
 
 # GPS
 vendor/bin/hw/android.hardware.gnss@2.1-service-mediatek
