@@ -42,4 +42,12 @@ $(KMSETKEY_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(KMSETKEY_SYMLINK)
 
+
+ifdef BOARD_INCLUDE_DTB_IN_BOOTIMG
+$(PRODUCT_OUT)/dtb.img: $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/arch/arm64/boot/dts/mediatek/mt6768.dtb
+	@echo "Building dtb.img from kernel dtb"
+	@mkdir -p $(dir $@)
+	cat $< > $@
+endif
+
 endif
