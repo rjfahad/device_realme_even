@@ -155,7 +155,10 @@
 - Added disabled + oneshot (VNDK33 RefBase ABI mismatch - incStrongRequireStrong crash loop)
 
 ### vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc
-- Added disabled + oneshot (same VNDK33 issue)
+- Fixed PQ HAL crash + re-enabled service (Night Light / display color temperature):
+  - patchelf 2.6-impl.so: libutils.so -> libutils-v30.so (was patching non-existent 2.3-impl.so)
+  - Removed disabled + oneshot so service auto-starts (class main)
+  - Added capabilities SYS_NICE to match even stock
 
 ## Build Fixes
 

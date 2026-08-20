@@ -90,7 +90,7 @@ function blob_fixup {
         vendor/lib64/hw/dfps.mt6768.so)
             grep -q "libutils-v30.so" "${2}" || patchelf --replace-needed "libutils.so" "libutils-v30.so" "${2}"
             ;;
-        vendor/lib64/hw/vendor.mediatek.hardware.pq@2.3-impl.so)
+        vendor/lib64/hw/vendor.mediatek.hardware.pq@2.6-impl.so)
             grep -q "libutils-v30.so" "${2}" || patchelf --replace-needed "libutils.so" "libutils-v30.so" "${2}"
             ;;
         vendor/lib/libMtkOmxVdecEx.so)
