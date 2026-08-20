@@ -87,6 +87,10 @@ function blob_fixup {
         vendor/etc/init/vendor.oppo.hardware.biometrics.fingerprint@2.1-service.rc)
             sed -i '/cpuset/Q' "$2"
             ;;
+        vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc)
+            sed -i -e '/disabled/d' -e '/oneshot/d' "$2"
+            grep -q "capabilities SYS_NICE" "$2" || sed -i '/^    group system graphics/a\    capabilities SYS_NICE' "$2"
+            ;;
         vendor/lib64/hw/dfps.mt6768.so)
             grep -q "libutils-v30.so" "${2}" || patchelf --replace-needed "libutils.so" "libutils-v30.so" "${2}"
             ;;

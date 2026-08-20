@@ -9,3 +9,6 @@ set_prop(vendor_init, system_oplus_fingerprint_prop)
 
 # Read oplus sensor property
 get_prop(vendor_init, system_oplus_sensor_prop)
+
+# Set MTK picture quality props at boot
+set_prop(vendor_init, vendor_mtk_pq_prop)

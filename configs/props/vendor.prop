@@ -153,7 +153,9 @@ ro.vendor.mediatek.version.release=alps-mp-s0.mp1.tc16sp-pr9-V1
 
 # PQ
 ro.vendor.mtk_pq_color_mode=1
-ro.vendor.mtk_pq_support=0
+ro.vendor.mtk_pq_support=2
+ro.vendor.pq.mtk_pq_interface_support=0
+ro.vendor.pq.mtk_pq_video_whitelist_support=0
 
 # Radio
 persist.vendor.ims_support=1
