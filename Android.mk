@@ -42,12 +42,8 @@ $(KMSETKEY_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(KMSETKEY_SYMLINK)
 
-
-ifdef BOARD_INCLUDE_DTB_IN_BOOTIMG
-$(PRODUCT_OUT)/dtb.img: $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/arch/arm64/boot/dts/mediatek/mt6768.dtb
-	@echo "Building dtb.img from kernel dtb"
-	@mkdir -p $(dir $@)
-	cat $< > $@
-endif
+# dtb.img is built by the kernel via vendor/lineage/build/tasks/kernel.mk
+# (BOARD_INCLUDE_DTB_IN_BOOTIMG). Do not define a device-side rule here; a
+# second rule collides with kernel.mk and breaks the dtb.img target.
 
 endif
