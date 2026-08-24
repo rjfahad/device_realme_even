@@ -17,23 +17,10 @@ allow init proc_oplus_ver:file r_file_perms;
 allow init proc_oplus_fp:file rw_file_perms;
 
 # sysfs writes for init (kernel_init_done, cmode, rps_cpus, read_ahead_kb)
+allow init sysfs:file { write open };
 allow init sysfs_usb_nonplat:file { write open };
 allow init sysfs_net:file { write open };
 allow init sysfs_devices_block:file { write open };
-allow init sysfs_dm:file { write open };
-allow init sysfs_zram:file { write open };
-allow init sysfs_block_queue:file { write open };
-allow init sysfs_leds:file { write open };
-allow init sysfs_power:file { write open };
-allow init sysfs_kernel_tunable:file { write open };
-allow init sysfs_cpu:file { write open };
-allow init sysfs_battery_meter:file { write open };
-allow init sysfs_usb_rawbulk:file { write open };
-allow init sysfs_android_usb:file { write open };
-allow init sysfs_fg_disable:file { write open };
-allow init sysfs_usb_plat:file { write open };
-allow init sysfs_dvfsrc_dbg:file { write open };
-allow init sysfs_battery_temp:file { write open };
 
 # Sensor sysfs setattr
 allow init sysfs_sensor:file setattr;

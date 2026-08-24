@@ -25,18 +25,3 @@ type pps_socket, file_type;
 # Light HAL sysfs nodes
 type sysfs_light, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_graphics, fs_type, sysfs_type, mlstrustedobject;
-
-# Block device queue tuning (mmcblk0, sdc)
-type sysfs_block_queue, fs_type, sysfs_type;
-
-# Kernel tunables (rcu_expedited, swap/vma_ra_enabled)
-type sysfs_kernel_tunable, fs_type, sysfs_type;
-
-# CPU tunables (eas/enable, cpufreq/scaling_governor)
-type sysfs_cpu, fs_type, sysfs_type;
-
-# Battery meter (platform/battery_meter, bus/platform/devices/battery)
-type sysfs_battery_meter, fs_type, sysfs_type;
-
-# USB rawbulk
-type sysfs_usb_rawbulk, fs_type, sysfs_type;
