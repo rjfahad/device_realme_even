@@ -25,3 +25,11 @@ type pps_socket, file_type;
 # Light HAL sysfs nodes
 type sysfs_light, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_graphics, fs_type, sysfs_type, mlstrustedobject;
+
+# Boot-time tunables written by init.*.rc (see init.te)
+type sysfs_dvfsrc, fs_type, sysfs_type;
+type sysfs_rcu, fs_type, sysfs_type;
+type sysfs_battery_meter, fs_type, sysfs_type;
+type sysfs_power_tunable, fs_type, sysfs_type;
+type sysfs_swap, fs_type, sysfs_type;
+type sysfs_cpu_eas, fs_type, sysfs_type;

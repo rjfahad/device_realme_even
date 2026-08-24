@@ -70,3 +70,14 @@ genfscon sysfs /devices/platform/charger/power_supply/battery/wakeup17          
 genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup15                                                      u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup16             					                        u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/11012000.spi2/spi_master/spi2/spi2.0/wakeup     					                    u:object_r:sysfs_wakeup:s0
+
+# Boot-time tunables written by init.*.rc (labeled so init writes do not
+# hit the generic sysfs type, which is a neverallow in user builds)
+genfscon sysfs /devices/platform/10012000.dvfsrc/helio-dvfsrc/dvfsrc_req_ddr_opp  u:object_r:sysfs_dvfsrc:s0
+genfscon sysfs /kernel/rcu_expedited                                              u:object_r:sysfs_rcu:s0
+genfscon sysfs /devices/platform/battery_meter                                    u:object_r:sysfs_battery_meter:s0
+genfscon sysfs /bus/platform/devices/battery                                      u:object_r:sysfs_battery_meter:s0
+genfscon sysfs /power/pm_async                                                    u:object_r:sysfs_power_tunable:s0
+genfscon sysfs /power/pm_freeze_timeout                                           u:object_r:sysfs_power_tunable:s0
+genfscon sysfs /kernel/mm/swap/vma_ra_enabled                                     u:object_r:sysfs_swap:s0
+genfscon sysfs /devices/system/cpu/eas                                            u:object_r:sysfs_cpu_eas:s0

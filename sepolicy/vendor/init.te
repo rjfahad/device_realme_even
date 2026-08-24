@@ -17,10 +17,18 @@ allow init proc_oplus_ver:file r_file_perms;
 allow init proc_oplus_fp:file rw_file_perms;
 
 # sysfs writes for init (kernel_init_done, cmode, rps_cpus, read_ahead_kb)
-allow init sysfs:file { write open };
 allow init sysfs_usb_nonplat:file { write open };
 allow init sysfs_net:file { write open };
 allow init sysfs_devices_block:file { write open };
+
+# Boot-time tunables written by init.*.rc (labeled to satisfy the
+# neverallow on writes to the generic sysfs type in user builds)
+allow init sysfs_dvfsrc:file { open write };
+allow init sysfs_rcu:file { open write };
+allow init sysfs_battery_meter:file { open write };
+allow init sysfs_power_tunable:file { open write };
+allow init sysfs_swap:file { open write };
+allow init sysfs_cpu_eas:file { open write };
 
 # Sensor sysfs setattr
 allow init sysfs_sensor:file setattr;
