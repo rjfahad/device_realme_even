@@ -14,6 +14,10 @@
     <!-- Use separate Quick Settings header instead of combined. -->
     <bool name="flag_combined_qs_headers">false</bool>
 
+    <!-- Default QS tiles + ringer mode toggle (ring/vibrate/silent).
+         Mirrors LineageOS quick_settings_tiles_default with our TileService appended. -->
+    <string name="quick_settings_tiles_default" translatable="false">internet,bt,flashlight,dnd,alarm,airplane,controls,wallet,rotation,battery,cast,screenrecord,mictoggle,cameratoggle,custom(com.rjfahad.ringertile/.RingerTileService)</string>
+
     <!-- Max refresh rate for AOD. -->
     <integer name="config_aodMaxRefreshRate">60</integer>
 

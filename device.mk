@@ -118,6 +118,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DT2W-Service-EVEN
 
+# Ringer mode QS tile (ring/vibrate/silent)
+PRODUCT_PACKAGES += \
+    RingerTile
+
 #PRODUCT_PACKAGES += \
 #    OplusDoze
 

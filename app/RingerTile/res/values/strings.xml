@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 rjfahad
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="app_name">Ringer Tile</string>
+    <string name="tile_label">Ringer</string>
+    <string name="state_ring">Ring</string>
+    <string name="state_vibrate">Vibrate</string>
+    <string name="state_silent">Silent</string>
+</resources>
