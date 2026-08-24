@@ -122,6 +122,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RingerTile
 
+# RealmeParts
+PRODUCT_PACKAGES += \
+    RealmeParts
+
 #PRODUCT_PACKAGES += \
 #    OplusDoze
 
