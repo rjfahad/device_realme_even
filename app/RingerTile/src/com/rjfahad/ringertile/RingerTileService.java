@@ -65,7 +65,12 @@ public class RingerTileService extends TileService {
                 next = AudioManager.RINGER_MODE_VIBRATE;
                 break;
         }
-        mAudioManager.setRingerMode(next);
+        try {
+            mAudioManager.setRingerMode(next);
+        } catch (SecurityException e) {
+            // Toggling to/from SILENT flips Do Not Disturb, which needs
+            // notification-policy access. Ignore rather than crash.
+        }
         updateTile();
     }
 

@@ -13,3 +13,6 @@ persist.sys.fp.vendor                   u:object_r:system_oplus_fingerprint_prop
 
 # Sensors
 sys.oppo.hasPhysicalGyroscope           u:object_r:system_oplus_sensor_prop:s0
+
+# Game mode perf hint (set by RealmeParts)
+perf_profile                            u:object_r:perf_profile_prop:s0
