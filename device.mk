@@ -90,9 +90,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.6.vendor:64
 
 PRODUCT_PACKAGES += \
-    libstdc++.vendor
-
-PRODUCT_PACKAGES += \
     RemoveCameraPackages \
     Aperture \
     Via \
@@ -283,7 +280,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.mediatek-libperfmgr
+    android.hardware.power-service.lineage-libperfmgr
 
 PRODUCT_PACKAGES += \
     libmtkperf_client_vendor \
@@ -384,6 +381,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek \
+    hardware/mediatek/libmtkperf_client \
+    hardware/lineage/interfaces/power-libperfmgr \
     $(DEVICE_PATH)
 
 # Text classifier
