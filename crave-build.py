@@ -307,6 +307,39 @@ def print_command(cmd: str, pull_cmd: str = ""):
         hr("─", MUTED)
     print()
 
+# ── Manifest branch helpers ─────────────────────────────────────────────────
+def fetch_manifest_branches(manifest_url: str) -> list[str]:
+    """Fetch branch list from a git remote. Returns [] on failure."""
+    try:
+        out = subprocess.check_output(
+            ["git", "ls-remote", "--heads", manifest_url],
+            stderr=subprocess.DEVNULL, timeout=10,
+        ).decode()
+        return sorted(
+            line.split("refs/heads/")[1].strip()
+            for line in out.splitlines()
+            if "refs/heads/" in line
+        )
+    except Exception:
+        return []
+
+def guess_manifest_branch(source_branch: str) -> str:
+    """Infer the best local manifest branch from the chosen AOSP source branch."""
+    sb = source_branch.lower()
+    if "lineage-20" in sb or "android-13" in sb:
+        return "los-20"
+    if "lineage-21" in sb or "android-14" in sb:
+        return "los-21"
+    if "lineage-22" in sb or "android-15" in sb:
+        return "los-22"
+    if "lineage-18" in sb or "android-12" in sb:
+        return "los-18"
+    if "lineage-16" in sb or "android-10" in sb:
+        return "los-16"
+    if "twrp" in sb:
+        return "twrp"
+    return "los-20"
+
 # ── Main Flow ─────────────────────────────────────────────────────────────────
 def main():
     os.system("clear")
@@ -356,16 +389,71 @@ def main():
 
     # ── 3. Local Manifest ──────────────────────────────────────────────────────
     section("STEP 3  —  LOCAL MANIFEST")
-    local_manifest_url = prompt(
-        "Local manifest repo URL",
-        default=DEFAULT_LOCAL_MANIFEST_URL,
-        required=True,
-    )
-    local_branch = prompt(
-        "Branch in local manifest repo to use",
-        default="los-20",
-        required=True,
-    )
+
+    default_local = guess_manifest_branch(src_branch)
+
+    # Predefined manifest repos for this device
+    KNOWN_MANIFESTS = [
+        ("rjfahad",    "RjFahad's manifest",     "https://github.com/rjfahad/realme_even_manifest.git"),
+        ("badmaneers", "Badmaneers' manifest",    "https://github.com/Badmaneers/even-manifests.git"),
+    ]
+
+    # Build menu options — fetch branches for each known repo
+    manifest_opts = []
+    manifest_urls = {}
+    for key, label_str, url in KNOWN_MANIFESTS:
+        branches = fetch_manifest_branches(url)
+        manifest_urls[key] = url
+        if branches:
+            match_hint = f"{ACCENT2}← {default_local}{C.RESET}" if default_local in branches else ""
+            branch_list = f"{MUTED}branches: {', '.join(branches)}{C.RESET}  {match_hint}"
+        else:
+            branch_list = f"{MUTED}(could not fetch branches){C.RESET}"
+        manifest_opts.append((
+            key,
+            f"{C.WHITE}{C.BOLD}{label_str:<24}{C.RESET} {MUTED}{url}{C.RESET}\n"
+            f"    {MUTED}  └─ {branch_list}{C.RESET}"
+        ))
+
+    # Add custom option
+    manifest_opts.append((
+        "custom",
+        f"{ROSE}{'Custom URL':<24}{C.RESET} {MUTED}Enter your own manifest repo URL{C.RESET}"
+    ))
+
+    chosen_manifest = choose("Select local manifest repo", manifest_opts, default="1")
+
+    if chosen_manifest == "custom":
+        local_manifest_url = prompt(
+            "Manifest repo URL",
+            default=DEFAULT_LOCAL_MANIFEST_URL,
+            required=True,
+        )
+    else:
+        local_manifest_url = manifest_urls[chosen_manifest]
+        success(f"Manifest  →  {local_manifest_url}")
+
+    # Now pick the branch — fetch from the selected repo
+    info(f"Fetching branches from {ACCENT}{local_manifest_url}{C.RESET} …")
+    remote_branches = fetch_manifest_branches(local_manifest_url)
+
+    if remote_branches:
+        branch_opts = [
+            (b, f"{C.WHITE}{C.BOLD}{b}{C.RESET}") for b in remote_branches
+        ]
+        default_idx = remote_branches.index(default_local) + 1 if default_local in remote_branches else 1
+        local_branch = choose(
+            f"Branch in manifest repo to use",
+            branch_opts,
+            default=str(default_idx),
+        )
+    else:
+        warn("Could not fetch branches — entering manually.")
+        local_branch = prompt(
+            "Branch in manifest repo to use",
+            default=default_local,
+            required=True,
+        )
 
     # ── 4. Build Variant ───────────────────────────────────────────────────────
     section("STEP 4  —  BUILD VARIANT")
