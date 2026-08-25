@@ -248,6 +248,10 @@ def build_command(cfg: dict) -> str:
     steps += [
         f"git clone {local_manifest_url} --depth 1 -b '{local_branch}' .repo/local_manifests",
         f"/opt/crave/resync.sh",
+        # libncurses.so.5 shim for clang-3289846 on Ubuntu 24.04
+        "sudo ln -sf /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5",
+        "sudo ln -sf /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5",
+        "sudo ldconfig",
         f"export BUILD_USERNAME=RjFahad",
         f"export BUILD_HOSTNAME=crave",
         f"source build/envsetup.sh",
