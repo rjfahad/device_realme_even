@@ -12,5 +12,10 @@ allow system_app proc_tp:file rw_file_perms;
 # RealmeParts Game Mode sets the perf hint property
 set_prop(system_app, perf_profile_prop)
 
-# RealmeParts OTG switch toggle
+# RealmeParts battery info + OTG switch toggle
+allow system_app sysfs_batteryinfo:dir r_dir_perms;
+allow system_app sysfs_batteryinfo:file r_file_perms;
 allow system_app sysfs_otg_switch:file rw_file_perms;
+
+# RealmeParts HBM (High Brightness Mode) toggle
+allow system_app sysfs:file w_file_perms;

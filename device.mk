@@ -97,7 +97,9 @@ PRODUCT_PACKAGES += \
     Aperture \
     Via \
     DeviceInfo \
-    RemoveJelly
+    RemoveJelly \
+    QUIK \
+    RemoveMessaging
 
 # Configstore
 PRODUCT_PACKAGES += \
