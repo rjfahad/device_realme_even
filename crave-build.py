@@ -263,7 +263,7 @@ def build_command(cfg: dict) -> str:
 
     steps.append(f"mka {target}")
 
-    inner = "; \\\n".join(f" {s}" for s in steps)
+    inner = " && \\\n".join(f" {s}" for s in steps)
     return f'crave run --no-patch -- "\\\n{inner}"'
 
 # ── Summary Box ───────────────────────────────────────────────────────────────
