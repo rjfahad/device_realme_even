@@ -1,0 +1,2 @@
+# HBM (High Brightness Mode) sysfs node
+type sysfs_hbm, fs_type, sysfs_type;
