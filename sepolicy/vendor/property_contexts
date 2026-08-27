@@ -19,10 +19,6 @@ ro.vendor.mtk.omx.log                          u:object_r:vendor_mtk_omx_core_pr
 ro.vendor.mtk_crossmount                       u:object_r:vendor_mtk_crossmount_prop:s0
 ro.vendor.mtk_deinterlace                      u:object_r:vendor_mtk_deinterlace_prop:s0
 
-# Power HAL (mtkpower stub; type dropped from sepolicy_vndr lineage-21)
-persist.vendor.powerhal.                       u:object_r:vendor_mtk_powerhal_prop:s0
-vendor.powerhal.                               u:object_r:vendor_mtk_powerhal_prop:s0
-
 # Radio
 vendor.oppo.network.                           u:object_r:vendor_oplus_radio_prop:s0
 
