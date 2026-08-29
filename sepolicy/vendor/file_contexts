@@ -26,3 +26,6 @@
 
 # USB
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.RMX3191                               u:object_r:hal_usb_default_exec:s0
+
+# Display HBM
+/sys/kernel/oppo_display/hbm                                                                                u:object_r:sysfs_hbm:s0

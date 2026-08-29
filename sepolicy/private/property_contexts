@@ -16,3 +16,6 @@ sys.oppo.hasPhysicalGyroscope           u:object_r:system_oplus_sensor_prop:s0
 
 # Camera (MTK) - non-vendor-prefixed props must be labeled system-side on A14+
 ro.mtk_cam.                             u:object_r:system_oplus_camera_prop:s0
+
+# Game mode perf hint (set by RealmeParts)
+perf_profile                            u:object_r:perf_profile_prop:s0

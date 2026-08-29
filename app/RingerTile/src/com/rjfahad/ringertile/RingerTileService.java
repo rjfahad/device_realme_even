@@ -65,7 +65,12 @@ public class RingerTileService extends TileService {
                 next = AudioManager.RINGER_MODE_VIBRATE;
                 break;
         }
-        mAudioManager.setRingerMode(next);
+        // Use setRingerModeInternal() to bypass the DND access check.
+        // The public setRingerMode() throws SecurityException when toggling
+        // to/from SILENT because it flips Do Not Disturb, which requires
+        // user-granted NotificationPolicyAccess. The internal variant skips
+        // that check entirely (requires MODIFY_AUDIO_SETTINGS only).
+        mAudioManager.setRingerModeInternal(next);
         updateTile();
     }
 

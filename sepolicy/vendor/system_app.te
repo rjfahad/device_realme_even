@@ -8,3 +8,13 @@ allow system_app sysfs_sia81xx_file:file r_file_perms;
 # Touchpanel access for system apps (Settings, etc.)
 allow system_app proc_tp:dir search;
 allow system_app proc_tp:file rw_file_perms;
+
+# RealmeParts Game Mode sets the perf hint property
+set_prop(system_app, perf_profile_prop)
+
+# RealmeParts OTG switch toggle
+allow system_app sysfs_otg_switch:file rw_file_perms;
+
+# RealmeParts HBM (High Brightness Mode) toggle
+allow system_app sysfs_hbm:dir search;
+allow system_app sysfs_hbm:file rw_file_perms;
