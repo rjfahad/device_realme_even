@@ -1,1 +1,4 @@
 allow priv_app sw_sync_device:chr_file rw_file_perms;
+
+# Allow Realm database FIFO creation (needed by QUIK messaging)
+allow priv_app privapp_data_file:fifo_file { create read write open };
