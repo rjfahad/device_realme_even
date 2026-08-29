@@ -5,4 +5,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_even.mk
+    $(LOCAL_DIR)/lineage_even.mk \
+    $(LOCAL_DIR)/cherish_even.mk
