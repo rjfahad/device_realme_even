@@ -127,11 +127,6 @@
         <fqname>@1.2::IHostapd/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.wifi.supplicant</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.2::ISupplicant/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.mediatek.hardware.atci</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IAtcid/default</fqname>
