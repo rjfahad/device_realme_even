@@ -280,7 +280,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.lineage-libperfmgr
+    android.hardware.power-service.mediatek-libperfmgr
 
 PRODUCT_PACKAGES += \
     libmtkperf_client_vendor \
@@ -381,8 +381,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek \
-    hardware/mediatek/libmtkperf_client \
-    hardware/lineage/interfaces/power-libperfmgr \
     $(DEVICE_PATH)
 
 # Text classifier
