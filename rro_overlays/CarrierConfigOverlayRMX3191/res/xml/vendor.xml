@@ -494,6 +494,34 @@
             <item value="63902" />
         </string-array>
     </carrier_config>
+    <carrier_config operator="Grameenphone">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <string-array name="mccmnc" num="4">
+            <item value="47001" />
+            <item value="47002" />
+            <item value="47003" />
+            <item value="47004" />
+        </string-array>
+    </carrier_config>
+    <carrier_config operator="Banglalink">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <string-array name="mccmnc" num="2">
+            <item value="47002" />
+            <item value="47003" />
+        </string-array>
+    </carrier_config>
+    <carrier_config operator="Robi">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <string-array name="mccmnc" num="1">
+            <item value="47004" />
+        </string-array>
+    </carrier_config>
+    <carrier_config operator="Teletalk">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <string-array name="mccmnc" num="1">
+            <item value="47005" />
+        </string-array>
+    </carrier_config>
     <carrier_config operator="Mexico-Telcel">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
