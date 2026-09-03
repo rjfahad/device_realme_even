@@ -1,4 +1,2 @@
-allow hal_lineage_health_default sysfs_batteryinfo:dir search;
-allow hal_lineage_health_default sysfs_batteryinfo:file open;
-allow hal_lineage_health_default sysfs_batteryinfo:file read;
-allow hal_lineage_health_default sysfs_batteryinfo:file write;
+allow hal_lineage_health_default sysfs_batteryinfo:dir { search getattr };
+allow hal_lineage_health_default sysfs_batteryinfo:file { open read getattr write };

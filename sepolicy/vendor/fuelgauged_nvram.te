@@ -1,0 +1,4 @@
+# fuelgauged_nvram searches sysfs_dt_firmware_android at boot
+# (type already declared by MTK in sepolicy_vndr/basic/non_plat/fuelgauged_nvram.te)
+allow fuelgauged_nvram sysfs_dt_firmware_android:dir search;
+allow fuelgauged_nvram sysfs_dt_firmware_android:file r_file_perms;

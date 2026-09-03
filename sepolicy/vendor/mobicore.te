@@ -1,0 +1,2 @@
+# mobicore reads system_prop at boot (McDaemon.FSD2) — neverallow, suppress only
+dontaudit mobicore system_prop:file { getattr open read map };

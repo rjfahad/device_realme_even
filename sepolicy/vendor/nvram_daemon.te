@@ -1,2 +1,5 @@
 r_dir_file(nvram_daemon, proc_oplus_ver)
 r_dir_file(nvram_daemon, proc_oplus_sensor)
+
+# NVRAM daemon reads /proc/prjName (generic proc label)
+allow nvram_daemon proc:file r_file_perms;

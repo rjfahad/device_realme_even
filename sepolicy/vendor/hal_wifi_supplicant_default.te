@@ -1,0 +1,2 @@
+# OPlus WiFi supplicant HAL finds default_android_hwservice — absolute neverallow, suppress
+dontaudit hal_wifi_supplicant_default default_android_hwservice:hwservice_manager find;

@@ -1,0 +1,2 @@
+# ccci_rpcd reads default_prop at boot — neverallow, suppress only
+dontaudit ccci_rpcd default_prop:file { getattr open read map };

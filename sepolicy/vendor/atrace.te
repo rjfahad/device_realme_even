@@ -1,0 +1,2 @@
+# atrace writes debugfs tracing — neverallow restricts to init/system_server
+dontaudit atrace debugfs_tracing_debug:file { write lock append map open };

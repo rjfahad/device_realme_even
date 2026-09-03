@@ -17,3 +17,6 @@ set_prop(hal_fingerprint_default, vendor_oplus_fingerprint_prop);
 set_prop(hal_fingerprint_default, system_oplus_fingerprint_prop);
 
 add_hwservice(hal_fingerprint_default, hal_commondcs_hwservice)
+
+# Silead fingerprint HAL writes to vendor_data_file dir at /data/vendor/silead
+allow hal_fingerprint_default vendor_data_file:dir { write add_name remove_name };

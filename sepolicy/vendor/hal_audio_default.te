@@ -1,5 +1,9 @@
 binder_call(hal_audio_default, mtk_hal_power)
 
+# MTK labels IMtkPower/IMtkPerf as hal_power_hwservice (AOSP type),
+# not mtk_hal_power_hwservice. Existing rule was dead — wrong type name.
+# Use hal_client_domain to add typeattribute (exempts from neverallow).
+hal_client_domain(hal_audio_default, hal_power)
 allow hal_audio_default mtk_hal_power_hwservice:hwservice_manager find;
 allow hal_audio_default hal_audio_default:netlink_kobject_uevent_socket { create bind read setopt };
 allow hal_audio_default property_socket:sock_file write;

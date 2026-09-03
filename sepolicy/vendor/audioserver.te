@@ -1,3 +1,8 @@
 allow audioserver sia81xx_tuning_if_device:chr_file rw_file_perms;
 allow audioserver sysfs_sia81xx_file:dir search;
 allow audioserver sysfs_sia81xx_file:file r_file_perms;
+
+# AOSP compatible_property_only excludes coredomains from vendor_default_prop.
+# audioserver needs this to read vendor.* audio props at startup.
+# neverallow blocks coredomain reading vendor_default_prop — suppress only.
+dontaudit audioserver vendor_default_prop:file { getattr open read map };

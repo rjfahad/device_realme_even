@@ -1,0 +1,2 @@
+# Bip (eSIM) reads net_dns_prop — neverallow restricts to init/system_server/vendor_init/dumpstate
+dontaudit bip net_dns_prop:file { getattr open read map };

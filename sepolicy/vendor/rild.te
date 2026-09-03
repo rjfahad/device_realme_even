@@ -4,6 +4,6 @@ get_prop(rild, vendor_oplus_radio_prop)
 set_prop(rild, vendor_oplus_radio_prop)
 get_prop(rild, vendor_mtk_simswitch_emmode_prop)
 
-# Read metadata_file
-allow rild metadata_file:file r_file_perms;
+# Read metadata_file (search + read)
+r_dir_file(rild, metadata_file)
 

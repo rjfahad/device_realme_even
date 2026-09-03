@@ -1,0 +1,2 @@
+# Shell: dmesg (syslog_read) — neverallow appdomain kernel:system syslog_read
+dontaudit shell kernel:system syslog_read;

@@ -1,1 +1,2 @@
-r_dir_file(mnld, proc_oplus_ver)
+# mnld reads default_prop at boot — neverallow, suppress only
+dontaudit mnld default_prop:file { getattr open read map };

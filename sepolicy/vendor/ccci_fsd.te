@@ -1,0 +1,2 @@
+# ccci_fsd reads /proc/version at boot
+allow ccci_fsd proc_version:file r_file_perms;
