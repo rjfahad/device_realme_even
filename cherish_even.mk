@@ -8,10 +8,14 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Security patch level override
+PLATFORM_SECURITY_PATCH := 2026-08-05
+
 # Inherit from device makefile
 $(call inherit-product, device/realme/even/device.mk)
 
 # Inherit some common CherishOS stuff.
+CHERISH_VANILLA := true
 $(call inherit-product, vendor/cherish/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
