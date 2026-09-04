@@ -18,6 +18,11 @@ clone_if_missing https://gitlab.com/clangsantoni/zyc_clang.git 14 ./prebuilts/cl
 clone_if_missing https://github.com/rjfahad/vendor_realme_RMX2020-ims.git sixteen-qpr1 ./vendor/realme/RMX2020-ims
 clone_if_missing https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr.git lineage-20 ./device/mediatek/sepolicy_vndr
 
+# Override security patch level to 2026-08-05
+if [ -f build/make/core/version_defaults.mk ]; then
+    sed -i 's/PLATFORM_SECURITY_PATCH := 2023-09-01/PLATFORM_SECURITY_PATCH := 2026-08-05/' build/make/core/version_defaults.mk
+fi
+
 # Fix undefined module "qti_vibrator_hal_defaults" in QCom vibrator HAL
 if [ -f ./vendor/qcom/opensource/vibrator/aidl/Android.bp ]; then
     if grep -q 'qti_vibrator_hal_defaults' ./vendor/qcom/opensource/vibrator/aidl/Android.bp; then
