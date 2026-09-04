@@ -34,3 +34,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-realme
 PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceName=even \
     DeviceProduct=even
+
+# Maintainer info (shown in Settings > About phone)
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.cherish.maintainer=rjfahad
