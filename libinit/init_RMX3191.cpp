@@ -137,16 +137,8 @@ void vendor_load_properties() {
                           "sys_mssi_64_cn_armv82-user 13 SP1A.210812.016 R.14fd79f+1 release-keys");
     } else if (prjname == "2167A") {
         set_device_props("RMX3195", "Realme C25S");
-        property_override("ro.build.fingerprint",
-                          "realme/RMX3195/RMX3195:13/SP1A.210812.016/R.127b622_1:user/release-keys");
-        property_override("ro.build.description",
-                          "sys_mssi_64_cn_armv82-user 13 SP1A.210812.016 R.127b622_1 release-keys");
     } else if (prjname == "2167C") {
         set_device_props("RMX3195", "Realme C25S");
-        property_override("ro.build.fingerprint",
-                          "realme/RMX3195/RMX3195:13/SP1A.210812.016/R.127b622_1:user/release-keys");
-        property_override("ro.build.description",
-                          "sys_mssi_64_cn_armv82-user 13 SP1A.210812.016 R.127b622_1 release-keys");
     } else if (prjname == "2167D") {
         set_device_props("RMX3197", "Realme C25S");
         property_override("ro.build.fingerprint",

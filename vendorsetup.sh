@@ -31,4 +31,12 @@ if [ -f ./vendor/qcom/opensource/vibrator/aidl/Android.bp ]; then
     fi
 fi
 
+# Disable crashing HIDL thermal HAL service (VNDK mismatch causes SIGSEGV)
+# Vendor thermal daemon (thermal/thermal_manager) still handles thermal management
+THERMAL_RC=vendor/realme/even/proprietary/vendor/etc/init/android.hardware.thermal@2.0-service.mtk.rc
+if [ -f "$THERMAL_RC" ]; then
+    echo "Disabling crashing thermal HIDL HAL..."
+    sed -i 's/^service vendor.thermal-hal-2-0.mtk/#service vendor.thermal-hal-2-0.mtk/' "$THERMAL_RC"
+fi
+
 echo "Done!"

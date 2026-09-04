@@ -235,6 +235,7 @@ PRODUCT_COPY_FILES += \
 # Permissions
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml \
+    $(DEVICE_PATH)/configs/permissions/privapp-permissions-bluetooth.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-bluetooth.xml \
     $(DEVICE_PATH)/configs/permissions/mediatek-ims-base.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/mediatek-ims-base.xml \
     $(DEVICE_PATH)/configs/permissions/mediatek-ims-common.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/mediatek-ims-common.xml \
     $(DEVICE_PATH)/configs/permissions/mediatek-telecom-common.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/mediatek-telecom-common.xml \
@@ -397,9 +398,9 @@ PRODUCT_PACKAGES += \
     libtextclassifier_hash.vendor
 
 # Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0.vendor \
-    android.hardware.thermal@1.0-impl
+# HIDL thermal HAL disabled (VNDK mismatch causes crash loop).
+# Vendor thermal daemon (thermal/thermal_manager) handles thermal management.
+# TODO: Migrate to android.hardware.thermal-service.mediatek (AIDL)
 
 # USB
 PRODUCT_PACKAGES += \
