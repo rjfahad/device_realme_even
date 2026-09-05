@@ -72,6 +72,12 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_RMX3191
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/mmi_charging_enable
 
+# Kernel build config (sets KERNEL_ARCH, toolchains, TOOLS_PATH_OVERRIDE)
+include vendor/arrow/config/BoardConfigKernel.mk
+
+# Soong (must come after BoardConfigKernel.mk so PATH_OVERRIDE_SOONG picks up TOOLS_PATH_OVERRIDE)
+include vendor/arrow/config/BoardConfigSoong.mk
+
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
