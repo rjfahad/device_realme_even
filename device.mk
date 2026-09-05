@@ -20,7 +20,7 @@ $(call inherit-product, vendor/realme/even/even-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # IMS
-$(call inherit-product, vendor/realme/RMX2020-ims/RMX2020-ims.mk)
+$(call inherit-product, vendor/realme/RMX3191-ims/RMX3191-ims.mk)
 
 PRODUCT_SHIPPING_API_LEVEL := 30
 
