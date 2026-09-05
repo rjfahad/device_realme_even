@@ -72,7 +72,10 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_RMX3191
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/mmi_charging_enable
 
-# Soong
+# Kernel build config (sets KERNEL_ARCH, toolchains, TOOLS_PATH_OVERRIDE)
+include vendor/lineage/config/BoardConfigKernel.mk
+
+# Soong (must come after BoardConfigKernel.mk so PATH_OVERRIDE_SOONG picks up TOOLS_PATH_OVERRIDE)
 include vendor/lineage/config/BoardConfigSoong.mk
 
 # Kernel
