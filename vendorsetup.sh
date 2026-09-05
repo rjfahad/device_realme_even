@@ -15,7 +15,7 @@ clone_if_missing https://github.com/LineageOS/android_hardware_mediatek.git line
 clone_if_missing https://github.com/rjfahad/kernel_realme_even.git rui2-backupx ./kernel/realme/even
 clone_if_missing https://github.com/HyperTeam/android_packages_apps_RealmeParts.git lineage-20 ./packages/apps/RealmeParts
 clone_if_missing https://gitlab.com/clangsantoni/zyc_clang.git 14 ./prebuilts/clang/host/linux-x86/mylitle-clang
-clone_if_missing https://github.com/rjfahad/vendor_realme_RMX2020-ims.git sixteen-qpr1 ./vendor/realme/RMX2020-ims
+clone_if_missing https://github.com/rjfahad/vendor_realme_RMX3191-ims.git thirteen ./vendor/realme/RMX3191-ims
 clone_if_missing https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr.git lineage-20 ./device/mediatek/sepolicy_vndr
 
 # Override security patch level to 2026-08-05
