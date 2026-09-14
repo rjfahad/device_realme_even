@@ -26,7 +26,7 @@ allow hal_fingerprint_default vendor_data_file:file { create write open read get
 
 set_prop(hal_fingerprint_default, vendor_oplus_fingerprint_prop);
 set_prop(hal_fingerprint_default, system_oplus_fingerprint_prop);
-get_prop(hal_fingerprint_default, default_prop)
+get_prop(hal_fingerprint_default, vendor_default_prop)
 
 add_hwservice(hal_fingerprint_default, hal_commondcs_hwservice)
 
