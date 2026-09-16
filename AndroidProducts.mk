@@ -5,4 +5,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_even.mk
+    $(LOCAL_DIR)/lineage_even.mk \
+    $(LOCAL_DIR)/afterlife_even.mk
+
+COMMON_LUNCH_CHOICES := \
+    afterlife_even-userdebug
