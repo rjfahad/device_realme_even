@@ -159,8 +159,7 @@ PRODUCT_PACKAGES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.RMX3191 \
-    android.hardware.health-service.RMX3191-recovery \
-    vendor.lineage.health-service.default
+    android.hardware.health-service.RMX3191-recovery
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -398,9 +397,8 @@ PRODUCT_PACKAGES += \
     libtextclassifier_hash.vendor
 
 # Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0.vendor \
-    android.hardware.thermal@1.0-impl
+# HIDL thermal HAL disabled (VNDK mismatch causes crash loop).
+# Vendor thermal daemon (thermal_manager) handles thermal management.
 
 # USB
 PRODUCT_PACKAGES += \

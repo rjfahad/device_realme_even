@@ -18,3 +18,4 @@ allow system_app sysfs_otg_switch:file rw_file_perms;
 # RealmeParts HBM (High Brightness Mode) toggle
 allow system_app sysfs_hbm:dir search;
 allow system_app sysfs_hbm:file rw_file_perms;
+
