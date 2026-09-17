@@ -18,7 +18,7 @@ clone_if_missing https://github.com/rjfahad/vendor_realme_RMX3191-ims.git thirte
 clone_if_missing https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr.git lineage-20 ./device/mediatek/sepolicy_vndr
 
 # DerpFest common vendor config
-clone_if_missing https://github.com/DerpFest-AOSP/vendor_derp.git 13-exp ./vendor/derp
+clone_if_missing https://github.com/DerpFest-AOSP/vendor_derp.git 13 ./vendor/derp
 
 # Toolchain
 CLANG_DIR=./prebuilts/clang/host/linux-x86/greenforce-clang
