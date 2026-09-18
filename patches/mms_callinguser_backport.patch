@@ -1,7 +1,7 @@
 diff --git a/src/com/android/mms/service/MmsService.java b/src/com/android/mms/service/MmsService.java
 --- a/src/com/android/mms/service/MmsService.java
 +++ b/src/com/android/mms/service/MmsService.java
-@@ -211,11 +211,12 @@ public class MmsService extends Service {
+@@ -211,10 +211,11 @@ public class MmsService extends Service {
      private IMms.Stub mStub = new IMms.Stub() {
          @Override
 -        public void sendMessage(int subId, int callingUser, String callingPkg,
@@ -16,7 +16,7 @@ diff --git a/src/com/android/mms/service/MmsService.java b/src/com/android/mms/s
 
              MmsStats mmsStats = new MmsStats(MmsService.this,
                      mMmsMetricsCollector.getAtomsStorage(), subId, getTelephonyManager(subId),
-@@ -288,13 +289,14 @@ public class MmsService extends Service {
+@@ -288,16 +289,17 @@ public class MmsService extends Service {
          }
 
          @Override
@@ -48,7 +48,7 @@ diff --git a/src/com/android/mms/service/MmsService.java b/src/com/android/mms/s
              return importMms(contentUri, messageId, timestampSecs, seen,
                  read, callingUser, callingPkg);
          }
-@@ -526,10 +529,11 @@ public class MmsService extends Service {
+@@ -526,9 +529,10 @@ public class MmsService extends Service {
          }
 
          @Override
