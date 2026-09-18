@@ -12,7 +12,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/realme/even/device.mk)
 
 # Inherit some common CherishOS stuff.
-CHERISH_VANILLA := true
 $(call inherit-product, vendor/cherish/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
@@ -34,3 +33,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-realme
 PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceName=even \
     DeviceProduct=even
+
+# Maintainer info (shown in Settings > About phone)
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.cherish.maintainer=rjfahad
