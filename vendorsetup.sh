@@ -22,4 +22,34 @@ if [ ! -x "$CLANG_DIR/bin/clang" ]; then
 fi
 clone_if_missing https://github.com/rjfahad/vendor_realme_RMX3191-ims.git thirteen ./vendor/realme/RMX3191-ims
 clone_if_missing https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr.git lineage-20 ./device/mediatek/sepolicy_vndr
+
+# Auto-apply tree patches (idempotent, lunch-safe: warns, never fails lunch)
+apply_tree_patch() {
+    local target_dir="$1" patch_file="$2" desc="$3"
+    if [ ! -d "$target_dir" ]; then
+        echo "Skip patch ($desc): $target_dir not present"
+        return 0
+    fi
+    if [ ! -f "$patch_file" ]; then
+        echo "Skip patch ($desc): patch file missing: $patch_file"
+        return 0
+    fi
+    if git -C "$target_dir" apply --reverse --check "$patch_file" >/dev/null 2>&1; then
+        echo "Already applied: $desc"
+    elif git -C "$target_dir" apply --check "$patch_file" >/dev/null 2>&1; then
+        echo "Applying patch: $desc"
+        git -C "$target_dir" apply "$patch_file" \
+            || echo "WARNING: failed to apply $desc"
+    else
+        echo "WARNING: cannot apply $desc (target diverged - fixed upstream?)"
+    fi
+}
+
+_TOP_DIR="${ANDROID_BUILD_TOP:-$(pwd)}"
+_EVEN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+apply_tree_patch "$_TOP_DIR/system/tools/aidl" \
+    "$_EVEN_DIR/patches/aidl_uninit_found.patch" \
+    "aidl ConstReferenceFinder uninit fix (glibc 2.39 segfault)"
+unset _TOP_DIR _EVEN_DIR
+
 echo "Done!"
