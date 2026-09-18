@@ -1,0 +1,13 @@
+diff --git a/src/com/android/timezonepicker/TimeZonePickerDialog.java b/src/com/android/timezonepicker/TimeZonePickerDialog.java
+index ef07ff6..93a5c10 100644
+--- a/src/com/android/timezonepicker/TimeZonePickerDialog.java
++++ b/src/com/android/timezonepicker/TimeZonePickerDialog.java
+@@ -24,7 +24,7 @@ import android.view.ViewGroup;
+ import android.view.Window;
+ import android.view.WindowManager;
+ 
+-import androidx.fragment.app.DialogFragment;
++import android.app.DialogFragment;
+ 
+ public class TimeZonePickerDialog extends DialogFragment implements
+         TimeZonePickerView.OnTimeZoneSetListener {

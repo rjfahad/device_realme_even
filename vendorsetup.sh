@@ -61,6 +61,9 @@ apply_tree_patch "$_TOP_DIR/frameworks/base" \
 apply_tree_patch "$_TOP_DIR/vendor/derp" \
     "$_EVEN_DIR/patches/vendor_derp_gms_guard.patch" \
     "vendor/derp WITH_GMS guard (vanilla)"
+apply_tree_patch "$_TOP_DIR/frameworks/opt/timezonepicker" \
+    "$_EVEN_DIR/patches/timezonepicker_framework_dialog.patch" \
+    "timezonepicker framework DialogFragment (Calendar compat)"
 unset _TOP_DIR _EVEN_DIR
 
 echo "Done!"
