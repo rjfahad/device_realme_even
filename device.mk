@@ -442,3 +442,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
+
+# Launcher (not included by vendor/derp or vendor/gms for this device)
+PRODUCT_PACKAGES += \
+    DerpLauncherQuickStep
