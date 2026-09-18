@@ -1,0 +1,18 @@
+diff --git a/telephony/common/com/android/internal/telephony/TelephonyPermissions.java b/telephony/common/com/android/internal/telephony/TelephonyPermissions.java
+--- a/telephony/common/com/android/internal/telephony/TelephonyPermissions.java
++++ b/telephony/common/com/android/internal/telephony/TelephonyPermissions.java
+@@ -781,5 +781,14 @@ public final class TelephonyPermissions {
+         throw new SecurityException(message + ": Only shell user can call it");
+     }
+
++    /**
++     * Returns whether the caller is the shell UID.
++     *
++     * @param callingUid pass Binder.getCallingUid().
++     */
++    public static boolean isShell(int callingUid) {
++        return callingUid == Process.SHELL_UID;
++    }
++
+     /**
+      * Returns the target SDK version number for a given package name.
