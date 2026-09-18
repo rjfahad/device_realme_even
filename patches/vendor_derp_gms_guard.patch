@@ -1,0 +1,19 @@
+diff --git a/config/common.mk b/config/common.mk
+index 8efd81f..f4f13e6 100644
+--- a/config/common.mk
++++ b/config/common.mk
+@@ -209,9 +209,11 @@ $(call inherit-product, vendor/certification/config.mk)
+ # Versioning
+ include vendor/derp/config/version.mk
+ 
+-# GApps
+-WITH_GMS := true
+-$(call inherit-product, vendor/gms/products/gms.mk)
++# GApps (device can opt out with WITH_GMS := false before inheriting common.mk)
++WITH_GMS ?= true
++ifeq ($(WITH_GMS),true)
++$(call inherit-product-if-exists, vendor/gms/products/gms.mk)
++endif
+ 
+ # Pixel Framework
+ $(call inherit-product, vendor/pixel-framework/config.mk)

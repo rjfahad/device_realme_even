@@ -58,6 +58,9 @@ apply_tree_patch "$_TOP_DIR/system/tools/aidl" \
 apply_tree_patch "$_TOP_DIR/frameworks/base" \
     "$_EVEN_DIR/patches/sqlitetokenizer_brackets.patch" \
     "SQLiteTokenizer OPTION_CHECK_BRACKETS"
+apply_tree_patch "$_TOP_DIR/vendor/derp" \
+    "$_EVEN_DIR/patches/vendor_derp_gms_guard.patch" \
+    "vendor/derp WITH_GMS guard (vanilla)"
 unset _TOP_DIR _EVEN_DIR
 
 echo "Done!"
