@@ -50,6 +50,12 @@ _EVEN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 apply_tree_patch "$_TOP_DIR/system/tools/aidl" \
     "$_EVEN_DIR/patches/aidl_uninit_found.patch" \
     "aidl ConstReferenceFinder uninit fix (glibc 2.39 segfault)"
+apply_tree_patch "$_TOP_DIR/frameworks/base" \
+    "$_EVEN_DIR/patches/sqlitetokenizer_brackets.patch" \
+    "SQLiteTokenizer OPTION_CHECK_BRACKETS (ContactsProvider)"
+apply_tree_patch "$_TOP_DIR/packages/services/Mms" \
+    "$_EVEN_DIR/patches/mms_callinguser_backport.patch" \
+    "MmsService callingUser backport (match Feb-2025 IMms.aidl)"
 unset _TOP_DIR _EVEN_DIR
 
 echo "Done!"
