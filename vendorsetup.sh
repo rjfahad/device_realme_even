@@ -56,6 +56,9 @@ apply_tree_patch "$_TOP_DIR/frameworks/base" \
 apply_tree_patch "$_TOP_DIR/packages/services/Mms" \
     "$_EVEN_DIR/patches/mms_callinguser_backport.patch" \
     "MmsService callingUser backport (match Feb-2025 IMms.aidl)"
+apply_tree_patch "$_TOP_DIR/frameworks/base" \
+    "$_EVEN_DIR/patches/telephony_isshell_helper.patch" \
+    "TelephonyPermissions.isShell helper (Telephony backport)"
 unset _TOP_DIR _EVEN_DIR
 
 echo "Done!"
