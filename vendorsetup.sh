@@ -21,7 +21,6 @@ clone_if_missing https://github.com/LineageOS/android_device_mediatek_sepolicy_v
 clone_if_missing https://github.com/DerpFest-AOSP/vendor_derp.git 13 ./vendor/derp
 
 # Toolchain
-CLANG_DIR=./prebuilts/clang/host/linux-x86/greenforce-clang
 clone_if_missing https://github.com/greenforce-project/greenforce_clang.git main "$CLANG_DIR"
 if [ ! -x "$CLANG_DIR/bin/clang" ]; then
     echo "Downloading greenforce-clang toolchain..."
