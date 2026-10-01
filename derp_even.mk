@@ -17,9 +17,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 # Inherit from device makefile
 $(call inherit-product, device/realme/even/device.mk)
 
-# Vanilla (non-GMS) build: honored by the WITH_GMS guard in
+# GMS (Google Mobile Services) build: honored by the WITH_GMS guard in
 # vendor/derp/config/common.mk (applied via patches/ on lunch).
-WITH_GMS := false
+# Set to false for a vanilla (non-GApps) build.
+WITH_GMS := true
 
 # Inherit some common DerpFest stuff.
 $(call inherit-product, vendor/derp/config/common.mk)

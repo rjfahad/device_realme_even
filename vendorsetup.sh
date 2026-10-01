@@ -20,12 +20,24 @@ clone_if_missing https://github.com/LineageOS/android_device_mediatek_sepolicy_v
 # DerpFest common vendor config
 clone_if_missing https://github.com/DerpFest-AOSP/vendor_derp.git 13 ./vendor/derp
 
-# Toolchain
-clone_if_missing https://github.com/greenforce-project/greenforce_clang.git main "$CLANG_DIR"
+# Toolchain (greenforce clang)
+# NOTE: the greenforce_clang *repo* is repo-managed (.repo/local_manifests/roomservice.xml),
+# so we must NOT git-clone into it here. The repo only ships the installer scripts;
+# the actual binaries are fetched by get_clang.py into $CLANG_DIR.
+_GF_TOP="${ANDROID_BUILD_TOP:-$(pwd)}"
+CLANG_DIR="${CLANG_DIR:-$_GF_TOP/prebuilts/clang/host/linux-x86/greenforce-clang}"
 if [ ! -x "$CLANG_DIR/bin/clang" ]; then
-    echo "Downloading greenforce-clang toolchain..."
-    (cd "$(dirname "$CLANG_DIR")" && bash "$(basename "$CLANG_DIR")/get_clang.sh")
+    if [ -f "$CLANG_DIR/get_clang.py" ]; then
+        echo "Downloading greenforce-clang toolchain into $CLANG_DIR ..."
+        (cd "$CLANG_DIR" && GREENFORCE_INSTALL_DIR="$CLANG_DIR" python3 get_clang.py) \
+            || echo "WARNING: greenforce-clang download failed (build will fall back to AOSP clang)"
+    else
+        echo "WARNING: $CLANG_DIR/get_clang.py not found - run 'repo sync' first"
+    fi
+else
+    echo "Toolchain ready: $CLANG_DIR/bin/clang"
 fi
+unset _GF_TOP
 
 # Auto-apply tree patches (idempotent, lunch-safe: warns, never fails lunch)
 apply_tree_patch() {
@@ -59,7 +71,7 @@ apply_tree_patch "$_TOP_DIR/frameworks/base" \
     "SQLiteTokenizer OPTION_CHECK_BRACKETS"
 apply_tree_patch "$_TOP_DIR/vendor/derp" \
     "$_EVEN_DIR/patches/vendor_derp_gms_guard.patch" \
-    "vendor/derp WITH_GMS guard (vanilla)"
+    "vendor/derp WITH_GMS guard (device-selectable)"
 apply_tree_patch "$_TOP_DIR/frameworks/opt/timezonepicker" \
     "$_EVEN_DIR/patches/timezonepicker_framework_dialog.patch" \
     "timezonepicker framework DialogFragment (Calendar compat)"
