@@ -23,8 +23,18 @@ CLANG_DIR="${CLANG_DIR:-$_GF_TOP/prebuilts/clang/host/linux-x86/greenforce-clang
 if [ ! -x "$CLANG_DIR/bin/clang" ]; then
     if [ -f "$CLANG_DIR/get_clang.py" ]; then
         echo "Downloading greenforce-clang toolchain into $CLANG_DIR ..."
-        (cd "$CLANG_DIR" && GREENFORCE_INSTALL_DIR="$CLANG_DIR" python3 get_clang.py) \
-            || echo "WARNING: greenforce-clang download failed (build will fall back to AOSP clang)"
+        (cd "$CLANG_DIR" && GREENFORCE_INSTALL_DIR="$CLANG_DIR" python3 get_clang.py) || {
+            # Fallback: GitHub API rate-limit (403) - use pinned direct release URL
+            _GF_URL=$(grep -o 'https://[^[:space:]]*\.tar\.gz' "$CLANG_DIR/get_latest_url.sh" 2>/dev/null | head -1)
+            if [ -n "$_GF_URL" ]; then
+                echo "API rate-limited, direct download: $_GF_URL"
+                curl -sL "$_GF_URL" -o /tmp/gf-clang.tar.gz \
+                    && tar -xzf /tmp/gf-clang.tar.gz -C "$CLANG_DIR" \
+                    && rm -f /tmp/gf-clang.tar.gz
+            fi
+            [ -x "$CLANG_DIR/bin/clang" ] \
+                || echo "WARNING: greenforce-clang download failed (build will fall back to AOSP clang)"
+        }
     else
         echo "WARNING: $CLANG_DIR/get_clang.py not found - run 'repo sync' first"
     fi
