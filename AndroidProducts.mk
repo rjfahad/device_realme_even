@@ -5,4 +5,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_even.mk
+    $(LOCAL_DIR)/evolution_even.mk
+COMMON_LUNCH_CHOICES := \
+    evolution_even-user \
+    evolution_even-userdebug \
+    evolution_even-eng
