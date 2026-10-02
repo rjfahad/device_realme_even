@@ -197,3 +197,9 @@ WIFI_DRIVER_STATE_ON := "1"
 WIFI_DRIVER_STATE_OFF := "0"
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+
+# Include Lineage board config for non-lineage_* products.
+# build/make only includes this automatically for lineage_* products;
+# without it PATH_OVERRIDE_SOONG is never exported to soong and the
+# generated_kernel_includes genrule fails.
+-include vendor/lineage/config/BoardConfigLineage.mk
